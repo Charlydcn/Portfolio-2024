@@ -1,0 +1,28 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+    :root {
+        --vert: 26, 25, 34;
+        --jaune: 252, 255, 202;
+    }
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.rubik {
+    font-family: 'Rubik', Times, serif;
+}
+
+.roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
+@layer components {
+    /* .classe {
+        @apply classTailwind classTailwind...
+    } */
+}
