@@ -7,24 +7,44 @@ export default {
   theme: {
     extend: {
         colors: {
-            vert: ({ opacityVariable, opacityValue }) => {
+            bleu: ({ opacityVariable, opacityValue }) => {
                 if (opacityValue !== undefined) {
-                  return `rgba(var(--vert), ${opacityValue})`;
+                  return `rgba(var(--bleu), ${opacityValue})`;
                 }
                 if (opacityVariable !== undefined) {
-                  return `rgba(var(--vert), var(${opacityVariable}, 1))`;
+                  return `rgba(var(--bleu), var(${opacityVariable}, 1))`;
                 }
-                return `rgb(var(--vert))`;
+                return `rgb(var(--bleu))`;
             },
 
-            jaune: ({ opacityVariable, opacityValue }) => {
-            if (opacityValue !== undefined) {
-                return `rgba(var(--jaune), ${opacityValue})`;
-            }
-            if (opacityVariable !== undefined) {
-                return `rgba(var(--jaune), var(${opacityVariable}, 1))`;
-            }
-            return `rgb(var(--jaune))`;
+            blanc: ({ opacityVariable, opacityValue }) => {
+                if (opacityValue !== undefined) {
+                    return `rgba(var(--blanc), ${opacityValue})`;
+                }
+                if (opacityVariable !== undefined) {
+                    return `rgba(var(--blanc), var(${opacityVariable}, 1))`;
+                }
+                return `rgb(var(--blanc))`;
+            },
+
+            noir: ({ opacityVariable, opacityValue }) => {
+                if (opacityValue !== undefined) {
+                    return `rgba(var(--noir), ${opacityValue})`;
+                }
+                if (opacityVariable !== undefined) {
+                    return `rgba(var(--noir), var(${opacityVariable}, 1))`;
+                }
+                return `rgb(var(--noir))`;
+            },
+
+            vert: ({ opacityVariable, opacityValue }) => {
+                if (opacityValue !== undefined) {
+                    return `rgba(var(--vert), ${opacityValue})`;
+                }
+                if (opacityVariable !== undefined) {
+                    return `rgba(var(--vert), var(${opacityVariable}, 1))`;
+                }
+                return `rgb(var(--vert))`;
             },
         }
     },

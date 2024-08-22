@@ -4,24 +4,34 @@
 
 @layer base {
     :root {
-        --vert: 26, 25, 34;
-        --jaune: 252, 255, 202;
+        --bleu: 118, 141, 233;
+        --blanc: 240, 235, 229;
+        --noir: 41, 43, 39;
+        --vert: 187, 222, 87;
     }
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 .rubik {
-    font-family: 'Rubik', Times, serif;
+    font-family: "Rubik", Times, serif;
 }
 
 .roboto {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
+
 @layer components {
+    .article {
+        @apply flex flex-col items-center gap-2
+    }
+
+    .article .line {
+        @apply block h-0.5 opacity-50 w-3/4 bg-vert
+    }
     /* .classe {
         @apply classTailwind classTailwind...
     } */
