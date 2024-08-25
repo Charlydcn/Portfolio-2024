@@ -536,7 +536,7 @@ function App() {
                 </section>
 
                 <section id="contact" className="bg-noir">
-                    <h5 className='text-blanc'>Entrons en contact</h5>
+                    <h5 className='text-blanc'>Merci pour votre visite !</h5>
 
                     <div className='w-fit grid grid-cols-2 grid-rows-2 gap-6 justify-items-center mx-auto'>
 
