@@ -126,7 +126,7 @@ function App() {
                 </ul>
             </nav> */}
         
-            <main>
+            <main className='overflow-x-hidden'>
                 <section className='relative w-full h-screen text-blanc flex items-center justify-center'>
                     {/* backgrounds */}
                     <div className='absolute w-full h-full top-0 z-0 flex flex-row'>
@@ -135,8 +135,8 @@ function App() {
                     </div>
 
                     {/* circles */}
-                    <img src={circle1} className="hidden absolute z-10 left-12 -bottom-24 md:block" alt=""/>
-                    <img src={circle3} className="w-64 -top-32 -left-32 absolute z-10 lg:-top-36 lg:-left-40 lg:w-auto" alt=""/>
+                    <img loading="lazy" src={circle1} className="hidden absolute z-10 left-12 -bottom-24 md:block" alt="Cercle"/>
+                    <img loading="lazy" src={circle3} className="w-64 -top-32 -left-32 absolute z-10 lg:-top-36 lg:-left-40 lg:w-auto" alt="Cercle"/>
                     
                     {/* intro */}
                     <div className='relative z-5 max-w-[85vw] flex flex-col-reverse gap-4 items-center justify-between m-auto text-blanc lg:gap-0 lg:w-3/4 2xl:max-w-screen-xl xl:w-2/3 lg:flex-row'>
@@ -190,8 +190,8 @@ function App() {
 
                         {/* photo */}
                         <div className='relative w-4/5 max-w-96 lg:max-w-full lg:w-96' data-aos="fade-up" data-aos-delay="150">
-                            <img className='w-full' src={photoIntro} alt="" />
-                            <img src={circle1} className="absolute h-24 bottom-0 -right-2" alt=""/>
+                            <img loading="lazy" className='w-full' src={photoIntro} alt="Photographie de moi-même" />
+                            <img loading="lazy" src={circle1} className="absolute h-24 bottom-0 -right-2" alt="Cercle"/>
                         </div>
                     </div>
                 </section>
@@ -199,7 +199,7 @@ function App() {
                 <section id="softskills" className='flex flex-col items-center w-11/12 mx-auto gap-24 lg:flex-row xl:h-96 xl:w-4/5'>
                     <article className="softskill" data-aos="fade-up">
                         
-                        <img src={creativeIcon} alt=""/>
+                        <img loading="lazy" src={creativeIcon} alt="Illustration d'une ampoule"/>
                         
                         <h4>Au-delà du code</h4>
                         
@@ -213,7 +213,7 @@ function App() {
 
                     <article className="softskill" data-aos="fade-up" data-aos-delay="200">
                         
-                        <img src={curiosityIcon} alt=""/>
+                        <img loading="lazy" src={curiosityIcon} alt="Illustration d'un point d'interrogation"/>
                         
                         <h4>Curiosité professionnelle</h4>
                         
@@ -227,7 +227,7 @@ function App() {
 
                     <article className="softskill" data-aos="fade-up" data-aos-delay="400">
                         
-                        <img src={collaborationIcon} alt=""/>
+                        <img loading="lazy" src={collaborationIcon} alt="Illustration d'une poignée de main"/>
                         
                         <h4>Aisance relationnelle</h4>
                         
@@ -241,51 +241,48 @@ function App() {
                 </section>
 
                 <section id="techno" className='relative min-h-screen pb-32 bg-noir flex flex-col justify-center lg:min-h-0'>
-                    <img src={circle4} className="hidden absolute h-48 z-10 right-12 -bottom-24 lg:block" alt=""/>
+                    <img loading="lazy" src={circle4} className="hidden absolute h-48 z-10 right-12 -bottom-24 lg:block" alt="Cercle"/>
 
                     <h5 className='text-blanc'>Technologies</h5>
 
-                    <div
-                        className='technos-container grid grid-cols-1 gap-12 w-fit mx-auto sm:grid-cols-2 sm:grid-rows-4 lg:grid-cols-4 lg:grid-rows-2'
-                        data-aos="fade-up"
-                    >
-                        <figure className='techno'>
-                            <img src={symfonyLightIcon} alt="Icône Symfony"/>
+                    <div className='technos-container grid grid-cols-1 gap-12 w-fit mx-auto sm:grid-cols-2 sm:grid-rows-4 lg:grid-cols-4 lg:grid-rows-2'>
+                        <figure className='techno' data-aos="fade-up">
+                            <img loading="lazy" src={symfonyLightIcon} alt="Icône Symfony"/>
                             <figcaption>Symfony</figcaption>
                         </figure>
 
-                        <figure className='techno'>
-                            <img src={phpIcon} alt="Icône PHP"/>
+                        <figure className='techno' data-aos="fade-up">
+                            <img loading="lazy" src={phpIcon} alt="Icône PHP"/>
                             <figcaption>PHP</figcaption>
                         </figure>
 
-                        <figure className='techno'>
-                            <img src={reactIcon} alt="Icône React"/>
+                        <figure className='techno' data-aos="fade-up">
+                            <img loading="lazy" src={reactIcon} alt="Icône React"/>
                             <figcaption>React</figcaption>
                         </figure>
 
-                        <figure className='techno'>
-                            <img src={tailwindIcon} alt="Icône Tailwind"/>
+                        <figure className='techno' data-aos="fade-up">
+                            <img loading="lazy" src={tailwindIcon} alt="Icône Tailwind"/>
                             <figcaption>Tailwind</figcaption>
                         </figure>
 
-                        <figure className='techno'>
-                            <img src={mysqlIcon} alt="Icône MySQL"/>
+                        <figure className='techno' data-aos="fade-up">
+                            <img loading="lazy" src={mysqlIcon} alt="Icône MySQL"/>
                             <figcaption>MySQL</figcaption>
                         </figure>
 
-                        <figure className='techno'>
-                            <img src={gitIcon} alt="Icône Git"/>
+                        <figure className='techno' data-aos="fade-up">
+                            <img loading="lazy" src={gitIcon} alt="Icône Git"/>
                             <figcaption>Git</figcaption>
                         </figure>
 
-                        <figure className='techno'>
-                            <img src={figmaPhotoshopIcon} alt="Icône Figma et Photoshop mélangés"/>
+                        <figure className='techno' data-aos="fade-up">
+                            <img loading="lazy" src={figmaPhotoshopIcon} alt="Icône Figma et Photoshop mélangés"/>
                             <figcaption>Figma/Photoshop</figcaption>
                         </figure>
 
-                        <figure className='techno'>
-                            <img src={trelloIcon} alt="Icône Trello"/>
+                        <figure className='techno' data-aos="fade-up">
+                            <img loading="lazy" src={trelloIcon} alt="Icône Trello"/>
                             <figcaption>Trello</figcaption>
                         </figure>
                     </div>
@@ -312,7 +309,7 @@ function App() {
                             <article className='projet'>
                                 <header>
                                     <a href="https://elan-dentaire.fr" target='_blank' className='relative'>
-                                        <img src={elanDentaire} alt="Logo du projet ELAN Dentaire" />
+                                        <img loading="lazy" src={elanDentaire} alt="Logo du projet ELAN Dentaire" />
                                         <FontAwesomeIcon
                                             className="opacity-0 pointer-events-none text-5xl text-white z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200"
                                             icon={faArrowRightFromBracket}
@@ -339,19 +336,19 @@ function App() {
 
                                     <footer>
                                         <Tippy content="Symfony 6.4">
-                                            <img src={symfonyDarkIcon} alt="Icône Symfony"/>
+                                            <img loading="lazy" src={symfonyDarkIcon} alt="Icône Symfony"/>
                                         </Tippy>
                                         <Tippy content="HTML">
-                                            <img src={htmlIcon} alt="Icône HTML"/>
+                                            <img loading="lazy" src={htmlIcon} alt="Icône HTML"/>
                                         </Tippy>
                                         <Tippy content="CSS">
-                                            <img src={cssIcon} alt="Icône CSS"/>
+                                            <img loading="lazy" src={cssIcon} alt="Icône CSS"/>
                                         </Tippy>
                                         <Tippy content="JavaScript">
-                                            <img src={javascriptIcon} alt="Icône JavaScript"/>
+                                            <img loading="lazy" src={javascriptIcon} alt="Icône JavaScript"/>
                                         </Tippy>
                                         <Tippy content="jQuery">
-                                            <img src={jqueryIcon} alt="Icône jQuery"/>
+                                            <img loading="lazy" src={jqueryIcon} alt="Icône jQuery"/>
                                         </Tippy>
                                     </footer>
                                 </main>
@@ -363,7 +360,7 @@ function App() {
                             <article className='projet'>
                                 <header>
                                     <a href="https://avo-trottinettes.fr/" target='_blank' className='relative'>
-                                        <img src={avotrott} alt="Logo du projet Avo'Trottinettes" />
+                                        <img loading="lazy" src={avotrott} alt="Logo du projet Avo'Trottinettes" />
                                         <FontAwesomeIcon
                                             className="opacity-0 pointer-events-none text-5xl text-white z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200"
                                             icon={faArrowRightFromBracket}
@@ -388,16 +385,16 @@ function App() {
 
                                     <footer>
                                         <Tippy content="HTML">
-                                            <img src={htmlIcon} alt="Icône HTML"/>
+                                            <img loading="lazy" src={htmlIcon} alt="Icône HTML"/>
                                         </Tippy>
                                         <Tippy content="CSS">
-                                            <img src={cssIcon} alt="Icône CSS"/>
+                                            <img loading="lazy" src={cssIcon} alt="Icône CSS"/>
                                         </Tippy>
                                         <Tippy content="JavaScript">
-                                            <img src={javascriptIcon} alt="Icône JavaScript"/>
+                                            <img loading="lazy" src={javascriptIcon} alt="Icône JavaScript"/>
                                         </Tippy>
                                         <Tippy content="jQuery">
-                                            <img src={jqueryIcon} alt="Icône jQuery"/>
+                                            <img loading="lazy" src={jqueryIcon} alt="Icône jQuery"/>
                                         </Tippy>
                                     </footer>
 
@@ -410,7 +407,7 @@ function App() {
                             <article className='projet'>
                                 <header>
                                     <a href="https://beer-garden-tailwind.vercel.app/" target='_blank' className='relative'>
-                                        <img src={beergarden} alt="Logo du projet Beer Garden" />
+                                        <img loading="lazy" src={beergarden} alt="Logo du projet Beer Garden" />
                                         <FontAwesomeIcon
                                             className="opacity-0 pointer-events-none text-5xl text-white z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200"
                                             icon={faArrowRightFromBracket}
@@ -435,23 +432,23 @@ function App() {
 
                                     <footer>
                                         <Tippy content="ViteJS">
-                                            <img src={vitejsIcon} alt="Icône ViteJS"/>
+                                            <img loading="lazy" src={vitejsIcon} alt="Icône ViteJS"/>
                                         </Tippy>
 
                                         <Tippy content="jQuery">
-                                            <img src={tailwindIcon} alt="Icône jQuery"/>
+                                            <img loading="lazy" src={tailwindIcon} alt="Icône jQuery"/>
                                         </Tippy>
 
                                         <Tippy content="Javascript">
-                                            <img src={javascriptIcon} alt="Icône JavaScript"/>
+                                            <img loading="lazy" src={javascriptIcon} alt="Icône JavaScript"/>
                                         </Tippy>
 
                                         <Tippy content="HTML">
-                                            <img src={htmlIcon} alt="Icône HTML"/>
+                                            <img loading="lazy" src={htmlIcon} alt="Icône HTML"/>
                                         </Tippy>
 
                                         <Tippy content="CSS">
-                                            <img src={cssIcon} alt="Icône CSS"/>
+                                            <img loading="lazy" src={cssIcon} alt="Icône CSS"/>
                                         </Tippy>
                                     </footer>
                                 </main>
@@ -463,7 +460,7 @@ function App() {
                             <article className='projet'>
                                 <header>
                                     <a href="https://news-grid-ruddy.vercel.app/" target='_blank' className='relative'>
-                                        <img src={newsgrid} alt="Logo du projet News Grid" />
+                                        <img loading="lazy" src={newsgrid} alt="Logo du projet News Grid" />
                                         <FontAwesomeIcon
                                             className="opacity-0 pointer-events-none text-5xl text-white z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200"
                                             icon={faArrowRightFromBracket}
@@ -490,15 +487,15 @@ function App() {
 
                                     <footer>
                                         <Tippy content="HTML">
-                                            <img src={htmlIcon} alt="Icône HTML"/>
+                                            <img loading="lazy" src={htmlIcon} alt="Icône HTML"/>
                                         </Tippy>
 
                                         <Tippy content="CSS">
-                                            <img src={cssIcon} alt="Icône CSS"/>
+                                            <img loading="lazy" src={cssIcon} alt="Icône CSS"/>
                                         </Tippy>
 
                                         <Tippy content="JavaScript">
-                                            <img src={javascriptIcon} alt="Icône JavaScript"/>
+                                            <img loading="lazy" src={javascriptIcon} alt="Icône JavaScript"/>
                                         </Tippy>
 
                                     </footer>
@@ -511,7 +508,7 @@ function App() {
                             <article className='projet'>
                                 <header>
                                     <a href="https://hangman-game-2-0.vercel.app/" target='_blank' className='relative'>
-                                        <img src={hangmanGame} alt="Logo du projet Hangman Game" />
+                                        <img loading="lazy" src={hangmanGame} alt="Logo du projet Hangman Game" />
                                         <FontAwesomeIcon
                                             className="opacity-0 pointer-events-none text-5xl text-white z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200"
                                             icon={faArrowRightFromBracket}
@@ -538,23 +535,23 @@ function App() {
 
                                     <footer>
                                         <Tippy content="React">
-                                            <img src={reactIcon} alt="Icône React"/>
+                                            <img loading="lazy" src={reactIcon} alt="Icône React"/>
                                         </Tippy>
 
                                         <Tippy content="ViteJS">
-                                            <img src={vitejsIcon} alt="Icône ViteJS"/>
+                                            <img loading="lazy" src={vitejsIcon} alt="Icône ViteJS"/>
                                         </Tippy>
 
                                         <Tippy content="JavaScript">
-                                            <img src={javascriptIcon} alt="Icône JavaScript"/>
+                                            <img loading="lazy" src={javascriptIcon} alt="Icône JavaScript"/>
                                         </Tippy>
 
                                         <Tippy content="HTML">
-                                            <img src={htmlIcon} alt="Icône HTML"/>
+                                            <img loading="lazy" src={htmlIcon} alt="Icône HTML"/>
                                         </Tippy>
 
                                         <Tippy content="CSS">
-                                            <img src={cssIcon} alt="Icône CSS"/>
+                                            <img loading="lazy" src={cssIcon} alt="Icône CSS"/>
                                         </Tippy>
 
                                     </footer>
@@ -567,7 +564,7 @@ function App() {
                             <article className='projet'>
                                 <header>
                                     <a href="https://github.com/Charlydcn/Kucra_Landing_Page" target='_blank' className='relative'>
-                                        <img src={kucra} alt="Logo du projet Kucra" />
+                                        <img loading="lazy" src={kucra} alt="Logo du projet Kucra" />
                                         <FontAwesomeIcon
                                             className="opacity-0 pointer-events-none text-5xl text-white z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200"
                                             icon={faArrowRightFromBracket}
@@ -593,19 +590,19 @@ function App() {
 
                                     <footer>
                                         <Tippy content="PHP">
-                                            <img src={phpIcon} alt="Icône PHP"/>
+                                            <img loading="lazy" src={phpIcon} alt="Icône PHP"/>
                                         </Tippy>
 
                                         <Tippy content="HTML">
-                                            <img src={htmlIcon} alt="Icône HTML"/>
+                                            <img loading="lazy" src={htmlIcon} alt="Icône HTML"/>
                                         </Tippy>
 
                                         <Tippy content="CSS">
-                                            <img src={cssIcon} alt="Icône CSS"/>
+                                            <img loading="lazy" src={cssIcon} alt="Icône CSS"/>
                                         </Tippy>
 
                                         <Tippy content="JavaScript">
-                                            <img src={javascriptIcon} alt="Icône JavaScript"/>
+                                            <img loading="lazy" src={javascriptIcon} alt="Icône JavaScript"/>
                                         </Tippy>
 
                                     </footer>
@@ -618,7 +615,7 @@ function App() {
                             <article className='projet'>
                                 <header>
                                     <a href="" target='_blank' className='relative'>
-                                        <img src={portfolio} alt="Logo de mon Portfolio 2024" />
+                                        <img loading="lazy" src={portfolio} alt="Logo de mon Portfolio 2024" />
                                         <FontAwesomeIcon
                                             className="opacity-0 pointer-events-none text-5xl text-white z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200"
                                             icon={faArrowRightFromBracket}
@@ -643,19 +640,19 @@ function App() {
 
                                     <footer>
                                         <Tippy content="ViteJS">
-                                            <img src={vitejsIcon} alt="Icône ViteJS"/>
+                                            <img loading="lazy" src={vitejsIcon} alt="Icône ViteJS"/>
                                         </Tippy>
                                         <Tippy content="TailwindCSS">
-                                            <img src={tailwindIcon} alt="Icône TailwindCSS"/>
+                                            <img loading="lazy" src={tailwindIcon} alt="Icône TailwindCSS"/>
                                         </Tippy>
                                         <Tippy content="JavaScript">
-                                            <img src={javascriptIcon} alt="Icône JavaScript"/>
+                                            <img loading="lazy" src={javascriptIcon} alt="Icône JavaScript"/>
                                         </Tippy>
                                         <Tippy content="HTML">
-                                            <img src={htmlIcon} alt="Icône HTML"/>
+                                            <img loading="lazy" src={htmlIcon} alt="Icône HTML"/>
                                         </Tippy>
                                         <Tippy content="CSS">
-                                            <img src={cssIcon} alt="Icône CSS"/>
+                                            <img loading="lazy" src={cssIcon} alt="Icône CSS"/>
                                         </Tippy>
                                     </footer>
 
@@ -668,7 +665,7 @@ function App() {
                             <article className='projet'>
                                 <header>
                                     <a href="https://github.com/Charlydcn?tab=repositories" target='_blank' className='relative'>
-                                        <img src={githubpfp} alt="Photo de profil Github Charlydcn" />
+                                        <img loading="lazy" src={githubpfp} alt="Photo de profil Github Charlydcn" />
                                         <FontAwesomeIcon
                                             className="opacity-0 pointer-events-none text-5xl text-white z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200"
                                             icon={faArrowRightFromBracket}
@@ -704,7 +701,7 @@ function App() {
                 </section>
 
                 <section id="contact" className="relative bg-noir pb-36">
-                    <img src={circle1} className="absolute z-10 h-32 -top-20 -left-8" alt=""/>
+                    <img loading="lazy" src={circle1} className="absolute z-10 h-32 -top-20 -left-8" alt=""/>
 
                     <h5 className='text-blanc' data-aos="fade-down">À bientôt !</h5>
 
@@ -726,7 +723,9 @@ function App() {
                         </div>
                     </div>
 
-                    <p className='absolute bottom-0 left-1/2 -translate-x-1/2 w-max max-w-[90vw] text-blanc italic opacity-50 text-center pb-2'>&copy;&nbsp;Charly&nbsp;DUCOURNAU&#45;GUICHARD&nbsp;-&nbsp;2024</p>
+                    <p className='absolute bottom-0 left-1/2 -translate-x-1/2 w-max max-w-[90vw] text-blanc italic opacity-50 text-center pb-2'>
+                        &copy;&nbsp;2024&nbsp;&#45;&nbsp;Charly&nbsp;DUCOURNAU&#45;GUICHARD
+                    </p>
                 </section>
             </main>
         </>

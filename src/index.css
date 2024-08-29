@@ -63,7 +63,7 @@ body {
 
 
     .techno {
-        @apply flex flex-col items-center justify-center text-blanc w-52 h-52 bg-[#383A35] gap-6 transition-all duration-200
+        @apply flex flex-col items-center justify-center text-blanc w-52 h-52 bg-[#383A35] gap-6 transition-all
     }
 
     .techno:hover {
@@ -71,7 +71,7 @@ body {
     }
 
     .technos-container:has(.techno:hover) > :not(:hover) {
-        @apply md:opacity-50 md:blur-[2px]
+        @apply md:opacity-50
     }
 
     .techno img {
