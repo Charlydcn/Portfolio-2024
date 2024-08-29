@@ -15,18 +15,10 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
-.rubik {
-    font-family: "Rubik", Times, serif;
-}
-
-.roboto {
-    font-family: "Roboto", sans-serif;
-}
-
 
 @layer components {
     h5 {
-        @apply text-4xl font-bold mx-auto w-fit mb-10
+        @apply text-4xl font-medium mx-auto w-fit mb-10 text-noir
     }
 
     section {
@@ -70,7 +62,7 @@ body {
     }
 
     .technos-container:has(.techno:hover) > :not(:hover) {
-        @apply md:opacity-50
+        @apply md:opacity-50 md:blur-[2px]
     }
 
     .techno img {
@@ -84,16 +76,18 @@ body {
 
 
 
+
+
     .swiper {
-        @apply w-10/12 xl:w-2/3 mx-auto max-w-4xl
+        @apply w-10/12 mx-auto max-w-4xl xl:w-2/3
     }
 
     .projet {
-        @apply flex flex-col items-center pb-12 cursor-grab lg:grid lg:grid-cols-6
+        @apply flex flex-col items-center pb-12 cursor-grab gap-6 lg:gap-0 lg:grid lg:grid-cols-6
     }
 
     .projet header {
-        @apply w-fit transition-all duration-200 lg:aspect-square lg:col-span-2
+        @apply w-fit transition-all duration-200 rounded overflow-hidden lg:aspect-square lg:col-span-2
     }
 
     .projet header img {
@@ -117,11 +111,11 @@ body {
     }
 
     .projet main {
-        @apply h-full flex flex-col lg:col-span-4 lg:pl-8
+        @apply h-full flex flex-col lg:col-span-4 h-80 lg:h-full lg:pl-8
     }
 
     .projet .project-title {
-        @apply text-2xl font-semibold mb-1 transition-colors duration-200 lg:text-3xl
+        @apply text-2xl text-noir italic font-[500] mb-1 transition-colors duration-200 lg:text-3xl
     }
 
     .projet .project-year {
@@ -129,21 +123,21 @@ body {
     }
 
     .projet .project-desc {
-        @apply text-base mt-6
+        @apply text-base mt-6 text-noir
     }
 
     .projet footer {
-        @apply flex gap-4 mt-auto max-h-12
+        @apply flex gap-4 max-h-12 mt-auto
     }
 
     .projet footer img {
-        @apply h-full
+        @apply h-8 object-scale-down w-fit lg:h-full
     }
 
 
 
     .contact-div {
-        @apply bg-white w-72 flex items-center gap-4 p-3
+        @apply bg-white w-80 flex items-center gap-4 p-3 max-w-[85vw]
     }
 
     .contact-div p,
@@ -152,7 +146,7 @@ body {
     }
 
     .contact-div svg {
-        @apply h-10
+        @apply h-10 text-noir
     }
 
 }

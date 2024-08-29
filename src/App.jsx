@@ -40,6 +40,7 @@ import vitejsIcon from "../src/assets/img/icones/technos/vitejs.png";
 import elanDentaire from "../src/assets/img/projets/elandentaire.png";
 import avotrott from "../src/assets/img/projets/avotrott.png";
 import beergarden from "../src/assets/img/projets/beergarden.png";
+import portfolio from "../src/assets/img/projets/portfolio.png";
 import hangmanGame from "../src/assets/img/projets/hangman_game.png";
 import kucra from "../src/assets/img/projets/kucra.png";
 import newsgrid from "../src/assets/img/projets/newsgrid.png";
@@ -50,16 +51,17 @@ import githubpfp from "../src/assets/img/projets/githubpfp.png";
 // ---------------------------------------------------------------------------
 
 
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css'; // Importer les styles de Tippy.js
+
 
 
 // ---------------------------------------------------------------------------
 // swiper --------------------------------------------------------------------
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
 
 import 'swiper/css';
-import 'swiper/css/pagination';
-
-import { Pagination } from 'swiper/modules';
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 
@@ -69,7 +71,7 @@ import { Pagination } from 'swiper/modules';
 // fontawesome ---------------------------------------------------------------
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faEllipsis, faArrowRightFromBracket, faLocationDot } from '@fortawesome/free-solid-svg-icons';
-import { faLinkedin, faGithub, faGit } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 
@@ -111,7 +113,7 @@ function App() {
                 </ul>
             </nav> */}
         
-            <main className=''>
+            <main>
                 <section className='relative w-full h-screen text-blanc flex items-center justify-center'>
                     {/* backgrounds */}
                     <div className='absolute w-full h-full top-0 z-0 flex flex-row'>
@@ -120,21 +122,21 @@ function App() {
                     </div>
 
                     {/* circles */}
-                    <img src={circle1} className="hidden absolute z-10 left-12 -bottom-24 xl:block" alt=""/>
-                    <img src={circle3} className="absolute z-10 -top-36 -left-40" alt=""/>
+                    <img src={circle1} className="hidden absolute z-10 left-12 -bottom-24 md:block" alt=""/>
+                    <img src={circle3} className="w-64 -top-32 -left-32 absolute z-10 lg:-top-36 lg:-left-40 lg:w-auto" alt=""/>
                     
                     {/* intro */}
-                    <div className='relative z-5 w-2/3 max-w-full-lg flex items-center justify-between m-auto text-blanc 2xl:w-4/6'>
+                    <div className='relative z-5 max-w-full-lg flex flex-col-reverse gap-4 items-center justify-between m-auto text-blanc lg:gap-0 lg:w-3/4 2xl:max-w-screen-xl xl:w-2/3 lg:flex-row'>
 
                         {/* texte */}
-                        <div className='flex flex-col w-2/3'>
-                            <h3 className='text-lg font-light opacity-50 mb-2'>Enchanté</h3>
+                        <div className='flex flex-col px-6 lg:w-2/3 lg:px-0'>
+                            <h3 className='lg:text-lg font-light opacity-50 mb-2'>Enchanté</h3>
 
-                            <h2 className='text-5xl font-semibold'>Moi c&apos;est <span className="text-vert">Charly</span></h2>
+                            <h2 className='text-4xl font-semibold lg:text-5xl'>Moi c&apos;est <span className="text-vert">Charly</span></h2>
 
-                            <p className='opacity-50 my-4 font-light'>Votre futur Alternant développeur web pour 2024-25 et au-delà !</p>
+                            <p className='opacity-50 my-4 font-light'>Votre futur Alternant développeur web pour 2024-25 et au-delà&nbsp;!</p>
 
-                            <button onClick={() => goToSection($('#softskills'), 1000)} className='border-2 border-blanc flex items-center justify-between font-semibold px-2 pr-0 w-72 h-10 group'>
+                            <button onClick={() => goToSection($('#softskills'), 1000)} className='border-2 border-blanc flex items-center justify-between font-semibold px-2 pr-0 h-10 group sm:w-72'>
                                 <span className='transition-transform duration-200 md:group-hover:translate-x-1'>Pourquoi moi ?</span>
                                 <div className='bg-blanc h-full w-16 flex items-center justify-center'>
                                     <FontAwesomeIcon className="text-noir text-xl" icon={faArrowRight}/>
@@ -146,8 +148,8 @@ function App() {
 
 
                         {/* photo */}
-                        <div className='w-1/3 relative'>
-                            <img className='max-w-full relative' src={photoIntro} alt="" />
+                        <div className='relative w-2/3 max-w-96 lg:max-w-full lg:w-96'>
+                            <img className='w-full' src={photoIntro} alt="" />
                             <img src={circle1} className="absolute h-24 bottom-0 -right-2" alt=""/>
                         </div>
                     </div>
@@ -245,7 +247,7 @@ function App() {
                     </div>
                 </section>
 
-                <section id="projets" className='h-screen'>
+                <section id="projets" className=''>
                     <h5 className='text-4xl'>Mes projets</h5>
 
                     <Swiper
@@ -289,12 +291,72 @@ function App() {
                                     </p>
 
                                     <footer>
-                                        <img src={symfonyDarkIcon} alt="Icône Symfony"/>
-                                        <img src={htmlIcon} alt="Icône HTML"/>
-                                        <img src={cssIcon} alt="Icône CSS"/>
-                                        <img src={javascriptIcon} alt="Icône JavaScript"/>
-                                        <img src={jqueryIcon} alt="Icône jQuery"/>
+                                        <Tippy content="Symfony 6.4">
+                                            <img src={symfonyDarkIcon} alt="Icône Symfony"/>
+                                        </Tippy>
+                                        <Tippy content="HTML">
+                                            <img src={htmlIcon} alt="Icône HTML"/>
+                                        </Tippy>
+                                        <Tippy content="CSS">
+                                            <img src={cssIcon} alt="Icône CSS"/>
+                                        </Tippy>
+                                        <Tippy content="JavaScript">
+                                            <img src={javascriptIcon} alt="Icône JavaScript"/>
+                                        </Tippy>
+                                        <Tippy content="jQuery">
+                                            <img src={jqueryIcon} alt="Icône jQuery"/>
+                                        </Tippy>
                                     </footer>
+                                </main>
+                            </article>
+                        </SwiperSlide>
+
+                        {/* portfolio */}
+                        <SwiperSlide>
+                            <article className='projet'>
+                                <header>
+                                    <a href="" target='_blank' className='relative'>
+                                        <img src={portfolio} alt="Logo de mon Portfolio 2024" />
+                                        <FontAwesomeIcon
+                                            className="opacity-0 pointer-events-none text-5xl text-white z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200"
+                                            icon={faArrowRightFromBracket}
+                                        />
+                                    </a>
+                                </header>
+
+                                <main>
+                                    <a
+                                        href=""
+                                        target='_blank'
+                                        className='project-title md:hover:text-[#a77204]'>
+
+                                        Portfolio
+                                    </a>
+
+                                    <p className='project-year'>2024</p>
+
+                                    <p className='project-desc'>
+                                        Le site que vous visitez en ce moment ! Tout a été réalisé par moi-même du maquettage à la mise en ligne.
+                                    </p>
+
+                                    <footer>
+                                        <Tippy content="ViteJS">
+                                            <img src={vitejsIcon} alt="Icône ViteJS"/>
+                                        </Tippy>
+                                        <Tippy content="TailwindCSS">
+                                            <img src={tailwindIcon} alt="Icône TailwindCSS"/>
+                                        </Tippy>
+                                        <Tippy content="JavaScript">
+                                            <img src={javascriptIcon} alt="Icône JavaScript"/>
+                                        </Tippy>
+                                        <Tippy content="HTML">
+                                            <img src={htmlIcon} alt="Icône HTML"/>
+                                        </Tippy>
+                                        <Tippy content="CSS">
+                                            <img src={cssIcon} alt="Icône CSS"/>
+                                        </Tippy>
+                                    </footer>
+
                                 </main>
                             </article>
                         </SwiperSlide>
@@ -328,11 +390,20 @@ function App() {
                                     </p>
 
                                     <footer>
-                                        <img src={htmlIcon} alt="Icône HTML"/>
-                                        <img src={cssIcon} alt="Icône CSS"/>
-                                        <img src={javascriptIcon} alt="Icône JavaScript"/>
-                                        <img src={jqueryIcon} alt="Icône jQuery"/>
+                                        <Tippy content="HTML">
+                                            <img src={htmlIcon} alt="Icône HTML"/>
+                                        </Tippy>
+                                        <Tippy content="CSS">
+                                            <img src={cssIcon} alt="Icône CSS"/>
+                                        </Tippy>
+                                        <Tippy content="JavaScript">
+                                            <img src={javascriptIcon} alt="Icône JavaScript"/>
+                                        </Tippy>
+                                        <Tippy content="jQuery">
+                                            <img src={jqueryIcon} alt="Icône jQuery"/>
+                                        </Tippy>
                                     </footer>
+
                                 </main>
                             </article>
                         </SwiperSlide>
@@ -366,11 +437,25 @@ function App() {
                                     </p>
 
                                     <footer>
-                                        <img src={vitejsIcon} alt="Icône ViteJS"/>
-                                        <img src={tailwindIcon} alt="Icône jQuery"/>
-                                        <img src={javascriptIcon} alt="Icône JavaScript"/>
-                                        <img src={htmlIcon} alt="Icône HTML"/>
-                                        <img src={cssIcon} alt="Icône CSS"/>
+                                        <Tippy content="ViteJS">
+                                            <img src={vitejsIcon} alt="Icône ViteJS"/>
+                                        </Tippy>
+
+                                        <Tippy content="jQuery">
+                                            <img src={tailwindIcon} alt="Icône jQuery"/>
+                                        </Tippy>
+
+                                        <Tippy content="Javascript">
+                                            <img src={javascriptIcon} alt="Icône JavaScript"/>
+                                        </Tippy>
+
+                                        <Tippy content="HTML">
+                                            <img src={htmlIcon} alt="Icône HTML"/>
+                                        </Tippy>
+
+                                        <Tippy content="CSS">
+                                            <img src={cssIcon} alt="Icône CSS"/>
+                                        </Tippy>
                                     </footer>
                                 </main>
                             </article>
@@ -402,14 +487,23 @@ function App() {
 
                                     <p className='project-desc'>
                                         Projet d&apos;introduction à la propriété CSS display: grid, un site vitrine simple et statique avec 4 pages :
-                                        index, contact, article et about. Les articles de la page d&apos;accueil étaient initialement générés dynamiquement
+                                        Home, Contact, Article et About. Les articles de la page d&apos;accueil étaient initialement générés dynamiquement
                                         via une API d&apos;actualités, mais sont désormais statiques pour faciliter l&apos;hébergement public du projet.
                                     </p>
 
                                     <footer>
-                                        <img src={htmlIcon} alt="Icône HTML"/>
-                                        <img src={cssIcon} alt="Icône CSS"/>
-                                        <img src={javascriptIcon} alt="Icône JavaScript"/>
+                                        <Tippy content="HTML">
+                                            <img src={htmlIcon} alt="Icône HTML"/>
+                                        </Tippy>
+
+                                        <Tippy content="CSS">
+                                            <img src={cssIcon} alt="Icône CSS"/>
+                                        </Tippy>
+
+                                        <Tippy content="JavaScript">
+                                            <img src={javascriptIcon} alt="Icône JavaScript"/>
+                                        </Tippy>
+
                                     </footer>
                                 </main>
                             </article>
@@ -446,11 +540,26 @@ function App() {
                                     </p>
 
                                     <footer>
-                                        <img src={reactIcon} alt="Icône React"/>
-                                        <img src={vitejsIcon} alt="Icône ViteJS"/>
-                                        <img src={javascriptIcon} alt="Icône JavaScript"/>
-                                        <img src={htmlIcon} alt="Icône HTML"/>
-                                        <img src={cssIcon} alt="Icône CSS"/>
+                                        <Tippy content="React">
+                                            <img src={reactIcon} alt="Icône React"/>
+                                        </Tippy>
+
+                                        <Tippy content="ViteJS">
+                                            <img src={vitejsIcon} alt="Icône ViteJS"/>
+                                        </Tippy>
+
+                                        <Tippy content="JavaScript">
+                                            <img src={javascriptIcon} alt="Icône JavaScript"/>
+                                        </Tippy>
+
+                                        <Tippy content="HTML">
+                                            <img src={htmlIcon} alt="Icône HTML"/>
+                                        </Tippy>
+
+                                        <Tippy content="CSS">
+                                            <img src={cssIcon} alt="Icône CSS"/>
+                                        </Tippy>
+
                                     </footer>
                                 </main>
                             </article>
@@ -486,10 +595,22 @@ function App() {
                                     </p>
 
                                     <footer>
-                                        <img src={phpIcon} alt="Icône PHP"/>
-                                        <img src={htmlIcon} alt="Icône HTML"/>
-                                        <img src={cssIcon} alt="Icône CSS"/>
-                                        <img src={javascriptIcon} alt="Icône JavaScript"/>
+                                        <Tippy content="PHP">
+                                            <img src={phpIcon} alt="Icône PHP"/>
+                                        </Tippy>
+
+                                        <Tippy content="HTML">
+                                            <img src={htmlIcon} alt="Icône HTML"/>
+                                        </Tippy>
+
+                                        <Tippy content="CSS">
+                                            <img src={cssIcon} alt="Icône CSS"/>
+                                        </Tippy>
+
+                                        <Tippy content="JavaScript">
+                                            <img src={javascriptIcon} alt="Icône JavaScript"/>
+                                        </Tippy>
+
                                     </footer>
                                 </main>
                             </article>
@@ -514,7 +635,7 @@ function App() {
                                         target='_blank'
                                         className='project-title'>
 
-                                        Et bien plus sur mon Github !
+                                        Et bien plus sur mon Github&nbsp;!
                                     </a>
 
                                     <p className='project-year'>2022&nbsp;-&nbsp;2024</p>
@@ -524,7 +645,7 @@ function App() {
                                         
                                         Bien qu&apos;ils ne soient pas publiquement accessibles, certains ont demandé plusieurs semaines de travail.
                                         
-                                        Venez découvrir ces projets sur mon GitHub !
+                                        Venez découvrir ces projets sur mon GitHub&nbsp;!
                                     </p>
 
                                     <footer>
@@ -536,9 +657,9 @@ function App() {
                 </section>
 
                 <section id="contact" className="bg-noir">
-                    <h5 className='text-blanc'>Merci pour votre visite !</h5>
+                    <h5 className='text-blanc'>Merci pour votre visite&nbsp;!</h5>
 
-                    <div className='w-fit grid grid-cols-2 grid-rows-2 gap-6 justify-items-center mx-auto'>
+                    <div className='w-fit flex flex-col gap-6 justify-items-center mx-auto md:grid md:grid-cols-2 md:grid-rows-2'>
 
                         <div className="contact-div col-span-1">
                             <FontAwesomeIcon icon={faLinkedin} />
