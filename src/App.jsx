@@ -51,8 +51,15 @@ import githubpfp from "../src/assets/img/projets/githubpfp.png";
 // ---------------------------------------------------------------------------
 
 
+
 import Tippy from '@tippyjs/react';
-import 'tippy.js/dist/tippy.css'; // Importer les styles de Tippy.js
+import 'tippy.js/dist/tippy.css';
+
+
+
+
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 
@@ -62,6 +69,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 
 import 'swiper/css';
+import 'swiper/swiper-bundle.css'
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 
@@ -77,6 +85,11 @@ import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 
 function App() {
+
+    AOS.init({
+        duration: 1000,
+        once: true,
+    });
 
     // fonction générale pour scroll à une section avec un duration donnée (offset de base de 25% top car plus agréable)
     const goToSection = ($section, duration) => {
@@ -130,15 +143,34 @@ function App() {
 
                         {/* texte */}
                         <div className='flex flex-col mx-auto items-start lg:w-2/3 lg:px-0'>
-                            <h3 className='lg:text-lg font-light opacity-50 mb-2'>Enchanté</h3>
+                            <h3 
+                                className='lg:text-lg font-light opacity-50 mb-2'
+                                data-aos="fade-left"
+                            >
+                                Enchanté
+                            </h3>
 
-                            <h2 className='text-4xl font-semibold lg:text-5xl'>Moi c&apos;est <span className="text-vert">Charly</span></h2>
+                            <h2 
+                                className='text-4xl font-semibold lg:text-5xl'
+                                data-aos="fade-left"
+                                data-aos-delay="150"
+                            >
+                                Moi c&apos;est <span className="text-vert">Charly</span>
+                            </h2>
 
-                            <p className='opacity-50 my-4 font-light'>Votre futur Alternant développeur web pour 2024-25 et au-delà&nbsp;!</p>
+                            <p 
+                                className='opacity-50 my-4 font-light'
+                                data-aos="fade-left"
+                                data-aos-delay="300"
+                            >
+                                Votre futur développeur web pour 2024-25 et au-delà&nbsp;!
+                            </p>
 
                             <button
                                 onClick={() => goToSection($('#softskills'), 1000)}
                                 className='border-2 border-blanc flex items-center justify-between font-semibold w-56 px-2 pr-0 h-10 group sm:w-72'
+                                data-aos="fade-left"
+                                data-aos-delay="450"
                             >
 
                                 <span className='transition-transform duration-200 md:group-hover:translate-x-1'>Pourquoi moi ?</span>
@@ -147,12 +179,17 @@ function App() {
                                 </div>
                             </button>
 
-                            <FontAwesomeIcon className="text-blanc w-14 text-6xl mt-10" icon={faEllipsis}/>
+                            <FontAwesomeIcon
+                                className="text-blanc w-14 text-6xl mt-10"
+                                icon={faEllipsis}
+                                data-aos="fade-left"
+                                data-aos-delay="600"
+                            />
                         </div>
 
 
                         {/* photo */}
-                        <div className='relative w-4/5 max-w-96 lg:max-w-full lg:w-96'>
+                        <div className='relative w-4/5 max-w-96 lg:max-w-full lg:w-96' data-aos="fade-up" data-aos-delay="150">
                             <img className='w-full' src={photoIntro} alt="" />
                             <img src={circle1} className="absolute h-24 bottom-0 -right-2" alt=""/>
                         </div>
@@ -160,7 +197,7 @@ function App() {
                 </section>
 
                 <section id="softskills" className='flex flex-col items-center w-11/12 mx-auto gap-24 lg:flex-row xl:h-96 xl:w-4/5'>
-                    <article className="softskill">
+                    <article className="softskill" data-aos="fade-up">
                         
                         <img src={creativeIcon} alt=""/>
                         
@@ -174,7 +211,7 @@ function App() {
                         </p>
                     </article>
 
-                    <article className="softskill">
+                    <article className="softskill" data-aos="fade-up" data-aos-delay="200">
                         
                         <img src={curiosityIcon} alt=""/>
                         
@@ -188,7 +225,7 @@ function App() {
                         </p>
                     </article>
 
-                    <article className="softskill">
+                    <article className="softskill" data-aos="fade-up" data-aos-delay="400">
                         
                         <img src={collaborationIcon} alt=""/>
                         
@@ -208,7 +245,10 @@ function App() {
 
                     <h5 className='text-blanc'>Technologies</h5>
 
-                    <div className='technos-container grid grid-cols-1 gap-12 w-fit mx-auto sm:grid-cols-2 sm:grid-rows-4 lg:grid-cols-4 lg:grid-rows-2'>
+                    <div
+                        className='technos-container grid grid-cols-1 gap-12 w-fit mx-auto sm:grid-cols-2 sm:grid-rows-4 lg:grid-cols-4 lg:grid-rows-2'
+                        data-aos="fade-up"
+                    >
                         <figure className='techno'>
                             <img src={symfonyLightIcon} alt="Icône Symfony"/>
                             <figcaption>Symfony</figcaption>
@@ -251,8 +291,8 @@ function App() {
                     </div>
                 </section>
 
-                <section id="projets" className=''>
-                    <h5 className='text-4xl'>Mes projets</h5>
+                <section id="projets">
+                    <h5 className='text-4xl' data-aos="fade-up">Mes projets</h5>
 
                     <Swiper
                         pagination={{
@@ -261,7 +301,8 @@ function App() {
                         }}
                         spaceBetween="30"
                         
-                        
+                        data-aos="fade-up"
+                        data-aos-delay="200"
                         modules={[Pagination]}
                         className="mySwiper"
                     >
@@ -665,27 +706,27 @@ function App() {
                 <section id="contact" className="relative bg-noir pb-36">
                     <img src={circle1} className="absolute z-10 h-32 -top-20 -left-8" alt=""/>
 
-                    <h5 className='text-blanc'>À bientôt !</h5>
+                    <h5 className='text-blanc' data-aos="fade-down">À bientôt !</h5>
 
                     <div className='w-fit flex flex-col gap-6 justify-items-center mx-auto md:grid md:grid-cols-2 md:grid-rows-2'>
 
-                        <div className="contact-div col-span-1">
+                        <div className="contact-div col-span-1" data-aos="fade-right" data-aos-delay="100">
                             <FontAwesomeIcon icon={faLinkedin} />
                             <a href="https://www.linkedin.com/in/charlydcn/" target="_blank">Charly Ducournau-Guichard</a>
                         </div>
 
-                        <div className="contact-div col-span-1">
+                        <div className="contact-div col-span-1" data-aos="fade-left" data-aos-delay="200">
                             <FontAwesomeIcon icon={faGithub} />
                             <a href="https://github.com/Charlydcn" target="_blank">@Charlydcn</a>
                         </div>
 
-                        <div className="contact-div col-span-2">
+                        <div className="contact-div col-span-2" data-aos="fade-down" data-aos-delay="300">
                             <FontAwesomeIcon icon={faLocationDot} />
                             <p>Strasbourg, France</p>
                         </div>
                     </div>
 
-                    <p className='absolute bottom-0 right-0 text-blanc italic opacity-50 p-2'>&copy; Charly DUCOURNAU-GUICHARD - 2024</p>
+                    <p className='absolute bottom-0 left-1/2 -translate-x-1/2 w-max max-w-[90vw] text-blanc italic opacity-50 text-center pb-2'>&copy;&nbsp;Charly&nbsp;DUCOURNAU&#45;GUICHARD&nbsp;-&nbsp;2024</p>
                 </section>
             </main>
         </>
