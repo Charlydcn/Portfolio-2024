@@ -126,29 +126,33 @@ function App() {
                     <img src={circle3} className="w-64 -top-32 -left-32 absolute z-10 lg:-top-36 lg:-left-40 lg:w-auto" alt=""/>
                     
                     {/* intro */}
-                    <div className='relative z-5 max-w-full-lg flex flex-col-reverse gap-4 items-center justify-between m-auto text-blanc lg:gap-0 lg:w-3/4 2xl:max-w-screen-xl xl:w-2/3 lg:flex-row'>
+                    <div className='relative z-5 max-w-[85vw] flex flex-col-reverse gap-4 items-center justify-between m-auto text-blanc lg:gap-0 lg:w-3/4 2xl:max-w-screen-xl xl:w-2/3 lg:flex-row'>
 
                         {/* texte */}
-                        <div className='flex flex-col px-6 lg:w-2/3 lg:px-0'>
+                        <div className='flex flex-col mx-auto items-start lg:w-2/3 lg:px-0'>
                             <h3 className='lg:text-lg font-light opacity-50 mb-2'>Enchanté</h3>
 
                             <h2 className='text-4xl font-semibold lg:text-5xl'>Moi c&apos;est <span className="text-vert">Charly</span></h2>
 
                             <p className='opacity-50 my-4 font-light'>Votre futur Alternant développeur web pour 2024-25 et au-delà&nbsp;!</p>
 
-                            <button onClick={() => goToSection($('#softskills'), 1000)} className='border-2 border-blanc flex items-center justify-between font-semibold px-2 pr-0 h-10 group sm:w-72'>
+                            <button
+                                onClick={() => goToSection($('#softskills'), 1000)}
+                                className='border-2 border-blanc flex items-center justify-between font-semibold w-56 px-2 pr-0 h-10 group sm:w-72'
+                            >
+
                                 <span className='transition-transform duration-200 md:group-hover:translate-x-1'>Pourquoi moi ?</span>
                                 <div className='bg-blanc h-full w-16 flex items-center justify-center'>
                                     <FontAwesomeIcon className="text-noir text-xl" icon={faArrowRight}/>
                                 </div>
                             </button>
 
-                            <FontAwesomeIcon className="text-blanc w-fit text-6xl mt-10" icon={faEllipsis}/>
+                            <FontAwesomeIcon className="text-blanc w-14 text-6xl mt-10" icon={faEllipsis}/>
                         </div>
 
 
                         {/* photo */}
-                        <div className='relative w-2/3 max-w-96 lg:max-w-full lg:w-96'>
+                        <div className='relative w-4/5 max-w-96 lg:max-w-full lg:w-96'>
                             <img className='w-full' src={photoIntro} alt="" />
                             <img src={circle1} className="absolute h-24 bottom-0 -right-2" alt=""/>
                         </div>
@@ -200,7 +204,7 @@ function App() {
                 </section>
 
                 <section id="techno" className='relative min-h-screen pb-32 bg-noir flex flex-col justify-center lg:min-h-0'>
-                    <img src={circle4} className="absolute h-48 z-10 right-12 -bottom-24" alt=""/>
+                    <img src={circle4} className="hidden absolute h-48 z-10 right-12 -bottom-24 lg:block" alt=""/>
 
                     <h5 className='text-blanc'>Technologies</h5>
 
@@ -255,6 +259,8 @@ function App() {
                             clickable: true,
                             dynamicBullets: true,
                         }}
+                        spaceBetween="30"
+                        
                         
                         modules={[Pagination]}
                         className="mySwiper"
@@ -285,9 +291,9 @@ function App() {
                                     <p className='project-year'>2024</p>
 
                                     <p className='project-desc'>
-                                        Site vitrine réalisé pour l&apos;entreprise ELAN Dentaire, mon plus gros projet à ce jour. Réalisé en collaboration avec
-                                        Valentin YOMBA pour le design, contient 3 jeux : snake, quizz, chasse au trésor, un formulaire de contact sécurisé et
-                                        une multitude de pages toutes optimisées en termes de performances et de SEO.
+                                        Site vitrine réalisé en collaboration avec Valentin YOMBA pour le design, contient une multitude de pages
+                                        toutes optimisées en termes de performances et de SEO, un formulaire de contact sécurisé, ainsi que
+                                        3 jeux : snake, quizz, chasse au trésor
                                     </p>
 
                                     <footer>
@@ -307,56 +313,6 @@ function App() {
                                             <img src={jqueryIcon} alt="Icône jQuery"/>
                                         </Tippy>
                                     </footer>
-                                </main>
-                            </article>
-                        </SwiperSlide>
-
-                        {/* portfolio */}
-                        <SwiperSlide>
-                            <article className='projet'>
-                                <header>
-                                    <a href="" target='_blank' className='relative'>
-                                        <img src={portfolio} alt="Logo de mon Portfolio 2024" />
-                                        <FontAwesomeIcon
-                                            className="opacity-0 pointer-events-none text-5xl text-white z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200"
-                                            icon={faArrowRightFromBracket}
-                                        />
-                                    </a>
-                                </header>
-
-                                <main>
-                                    <a
-                                        href=""
-                                        target='_blank'
-                                        className='project-title md:hover:text-[#a77204]'>
-
-                                        Portfolio
-                                    </a>
-
-                                    <p className='project-year'>2024</p>
-
-                                    <p className='project-desc'>
-                                        Le site que vous visitez en ce moment ! Tout a été réalisé par moi-même du maquettage à la mise en ligne.
-                                    </p>
-
-                                    <footer>
-                                        <Tippy content="ViteJS">
-                                            <img src={vitejsIcon} alt="Icône ViteJS"/>
-                                        </Tippy>
-                                        <Tippy content="TailwindCSS">
-                                            <img src={tailwindIcon} alt="Icône TailwindCSS"/>
-                                        </Tippy>
-                                        <Tippy content="JavaScript">
-                                            <img src={javascriptIcon} alt="Icône JavaScript"/>
-                                        </Tippy>
-                                        <Tippy content="HTML">
-                                            <img src={htmlIcon} alt="Icône HTML"/>
-                                        </Tippy>
-                                        <Tippy content="CSS">
-                                            <img src={cssIcon} alt="Icône CSS"/>
-                                        </Tippy>
-                                    </footer>
-
                                 </main>
                             </article>
                         </SwiperSlide>
@@ -616,6 +572,56 @@ function App() {
                             </article>
                         </SwiperSlide>
 
+                        {/* portfolio */}
+                        <SwiperSlide>
+                            <article className='projet'>
+                                <header>
+                                    <a href="" target='_blank' className='relative'>
+                                        <img src={portfolio} alt="Logo de mon Portfolio 2024" />
+                                        <FontAwesomeIcon
+                                            className="opacity-0 pointer-events-none text-5xl text-white z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200"
+                                            icon={faArrowRightFromBracket}
+                                        />
+                                    </a>
+                                </header>
+
+                                <main>
+                                    <a
+                                        href=""
+                                        target='_blank'
+                                        className='project-title md:hover:text-[#a77204]'>
+
+                                        Portfolio
+                                    </a>
+
+                                    <p className='project-year'>2024</p>
+
+                                    <p className='project-desc'>
+                                        Le site que vous visitez en ce moment ! Tout a été réalisé par moi-même du maquettage à la mise en ligne.
+                                    </p>
+
+                                    <footer>
+                                        <Tippy content="ViteJS">
+                                            <img src={vitejsIcon} alt="Icône ViteJS"/>
+                                        </Tippy>
+                                        <Tippy content="TailwindCSS">
+                                            <img src={tailwindIcon} alt="Icône TailwindCSS"/>
+                                        </Tippy>
+                                        <Tippy content="JavaScript">
+                                            <img src={javascriptIcon} alt="Icône JavaScript"/>
+                                        </Tippy>
+                                        <Tippy content="HTML">
+                                            <img src={htmlIcon} alt="Icône HTML"/>
+                                        </Tippy>
+                                        <Tippy content="CSS">
+                                            <img src={cssIcon} alt="Icône CSS"/>
+                                        </Tippy>
+                                    </footer>
+
+                                </main>
+                            </article>
+                        </SwiperSlide>
+
                         {/* github */}
                         <SwiperSlide>
                             <article className='projet'>
@@ -656,8 +662,10 @@ function App() {
                     </Swiper>
                 </section>
 
-                <section id="contact" className="bg-noir">
-                    <h5 className='text-blanc'>Merci pour votre visite&nbsp;!</h5>
+                <section id="contact" className="relative bg-noir pb-36">
+                    <img src={circle1} className="absolute z-10 h-32 -top-20 -left-8" alt=""/>
+
+                    <h5 className='text-blanc'>À bientôt !</h5>
 
                     <div className='w-fit flex flex-col gap-6 justify-items-center mx-auto md:grid md:grid-cols-2 md:grid-rows-2'>
 
@@ -676,6 +684,8 @@ function App() {
                             <p>Strasbourg, France</p>
                         </div>
                     </div>
+
+                    <p className='absolute bottom-0 right-0 text-blanc italic opacity-50 p-2'>&copy; Charly DUCOURNAU-GUICHARD - 2024</p>
                 </section>
             </main>
         </>

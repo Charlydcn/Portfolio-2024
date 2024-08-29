@@ -18,8 +18,17 @@ body {
 
 @layer components {
     h5 {
-        @apply text-4xl font-medium mx-auto w-fit mb-10 text-noir
+        @apply text-4xl font-medium mx-auto w-fit mb-10 text-noir relative z-10
     }
+    
+    /* h5::after {
+        content:"";
+        @apply absolute bottom-0 left-1/2 transform -translate-x-1/2 bg-vert/40 w-5/6 h-1 -z-10
+    }
+
+    h5.text-blanc::after {
+        @apply bg-vert/20
+    } */
 
     section {
         @apply py-20
@@ -111,7 +120,7 @@ body {
     }
 
     .projet main {
-        @apply h-full flex flex-col lg:col-span-4 h-80 lg:h-full lg:pl-8
+        @apply flex flex-col lg:col-span-4 h-full lg:pl-8
     }
 
     .projet .project-title {
@@ -127,22 +136,25 @@ body {
     }
 
     .projet footer {
+        @apply h-12 flex gap-4 mt-10 lg:mt-auto
+    }
+
+    .projet footer img {
+        @apply h-full
+    }
+
+    /* .projet footer {
         @apply flex gap-4 max-h-12 mt-auto
     }
 
     .projet footer img {
         @apply h-8 object-scale-down w-fit lg:h-full
-    }
+    } */
 
 
 
     .contact-div {
-        @apply bg-white w-80 flex items-center gap-4 p-3 max-w-[85vw]
-    }
-
-    .contact-div p,
-    .contact-div a {
-        /* @apply  */
+        @apply bg-white w-80 flex items-center gap-4 p-3 max-w-[85vw] text-noir font-semibold
     }
 
     .contact-div svg {
