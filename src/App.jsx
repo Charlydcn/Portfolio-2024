@@ -2,71 +2,75 @@ import './index.css'
 
 import $ from 'jquery';
 
+
+// ---------------------------------------------------------------------------
+// components ----------------------------------------------------------------
+import Softskill from './components/Softskill';
+import Techno from './components/Techno';
+// ---------------------------------------------------------------------------
+
+
+
 // ---------------------------------------------------------------------------
 // img imports ---------------------------------------------------------------
-import photoIntro from "../src/assets/img/photo-intro.png";
-
+import photoIntro from "../src/assets/img/photo-intro.webp";
 
 // cercles déco
-import circle1 from "../src/assets/img/decorations/circle_1.png";
-// import circle2 from "../src/assets/img/decorations/circle_2.png";
-import circle3 from "../src/assets/img/decorations/circle_3.png";
-import circle4 from "../src/assets/img/decorations/circle_4.png";
-
+import circle1 from "../src/assets/img/decorations/circle_1.webp";
+// import circle2 from "../src/assets/img/decorations/circle_2.webp";
+import circle3 from "../src/assets/img/decorations/circle_3.webp";
+import circle4 from "../src/assets/img/decorations/circle_4.webp";
 
 // icones section texte
-import collaborationIcon from "../src/assets/img/icones/collaboration.png";
-import curiosityIcon from "../src/assets/img/icones/curiosity.png";
-import creativeIcon from "../src/assets/img/icones/creative.png";
-
+import collaborationIcon from "../src/assets/img/icones/collaboration.webp";
+import curiosityIcon from "../src/assets/img/icones/curiosity.webp";
+import creativeIcon from "../src/assets/img/icones/creative.webp";
 
 // icones technos
-import reactIcon from "../src/assets/img/icones/technos/react.png";
-import symfonyLightIcon from "../src/assets/img/icones/technos/symfony_light.png";
-import symfonyDarkIcon from "../src/assets/img/icones/technos/symfony_dark.png";
-import tailwindIcon from "../src/assets/img/icones/technos/tailwind.png";
-import phpIcon from "../src/assets/img/icones/technos/php.png";
-import mysqlIcon from "../src/assets/img/icones/technos/mysql.png";
-import gitIcon from "../src/assets/img/icones/technos/git.png";
-import figmaPhotoshopIcon from "../src/assets/img/icones/technos/figma_photoshop.png";
-import trelloIcon from "../src/assets/img/icones/technos/trello.png";
-import htmlIcon from "../src/assets/img/icones/technos/html.png";
-import cssIcon from "../src/assets/img/icones/technos/css.png";
-import javascriptIcon from "../src/assets/img/icones/technos/javascript.png";
-import jqueryIcon from "../src/assets/img/icones/technos/jquery.png";
-import vitejsIcon from "../src/assets/img/icones/technos/vitejs.png";
+import reactIcon from "../src/assets/img/icones/technos/react.webp";
+import symfonyLightIcon from "../src/assets/img/icones/technos/symfony_light.webp";
+import symfonyDarkIcon from "../src/assets/img/icones/technos/symfony_dark.webp";
+import tailwindIcon from "../src/assets/img/icones/technos/tailwind.webp";
+import phpIcon from "../src/assets/img/icones/technos/php.webp";
+import mysqlIcon from "../src/assets/img/icones/technos/mysql.webp";
+import gitIcon from "../src/assets/img/icones/technos/git.webp";
+import figmaPhotoshopIcon from "../src/assets/img/icones/technos/figma_photoshop.webp";
+import trelloIcon from "../src/assets/img/icones/technos/trello.webp";
+import htmlIcon from "../src/assets/img/icones/technos/html.webp";
+import cssIcon from "../src/assets/img/icones/technos/css.webp";
+import javascriptIcon from "../src/assets/img/icones/technos/javascript.webp";
+import jqueryIcon from "../src/assets/img/icones/technos/jquery.webp";
+import vitejsIcon from "../src/assets/img/icones/technos/vitejs.webp";
 
-
-import elanDentaire from "../src/assets/img/projets/elandentaire.png";
-import avotrott from "../src/assets/img/projets/avotrott.png";
-import beergarden from "../src/assets/img/projets/beergarden.png";
-import portfolio from "../src/assets/img/projets/portfolio.png";
-import hangmanGame from "../src/assets/img/projets/hangman_game.png";
-import kucra from "../src/assets/img/projets/kucra.png";
-import newsgrid from "../src/assets/img/projets/newsgrid.png";
-import githubpfp from "../src/assets/img/projets/githubpfp.png";
-
-
+// projets
+import elanDentaire from "../src/assets/img/projets/elandentaire.webp";
+import avotrott from "../src/assets/img/projets/avotrott.webp";
+import beergarden from "../src/assets/img/projets/beergarden.webp";
+import portfolio from "../src/assets/img/projets/portfolio.webp";
+import hangmanGame from "../src/assets/img/projets/hangman_game.webp";
+import kucra from "../src/assets/img/projets/kucra.webp";
+import newsgrid from "../src/assets/img/projets/newsgrid.webp";
+import githubpfp from "../src/assets/img/projets/githubpfp.webp";
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 
-
-
-import Tippy from '@tippyjs/react';
+// ---------------------------------------------------------------------------
+// import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
+// ---------------------------------------------------------------------------
 
 
-
-
+// ---------------------------------------------------------------------------
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+// ---------------------------------------------------------------------------
 
 
 
 // ---------------------------------------------------------------------------
 // swiper --------------------------------------------------------------------
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/swiper-bundle.css'
@@ -78,10 +82,14 @@ import 'swiper/swiper-bundle.css'
 // ---------------------------------------------------------------------------
 // fontawesome ---------------------------------------------------------------
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight, faEllipsis, faArrowRightFromBracket, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faEllipsis, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
+import Projet from './components/Projet';
+import ContactBtn from './components/ContactBtn';
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
+
+
 
 
 function App() {
@@ -101,6 +109,146 @@ function App() {
             }, duration);
         }
     };
+    
+    // tableau d'objet des technos
+    const technologies = {
+        symfony : { img: symfonyDarkIcon, imgAlt: 'Icône Symfony', text: 'Symfony' },
+        php : { img: phpIcon, imgAlt: 'Icône PHP', text: 'PHP' },
+        react : { img: reactIcon, imgAlt: 'Icône React', text: 'React' },
+        tailwind : { img: tailwindIcon, imgAlt: 'Icône Tailwind', text: 'Tailwind' },
+        mysql : { img: mysqlIcon, imgAlt: 'Icône MySQL', text: 'MySQL' },
+        html : { img: htmlIcon, imgAlt: 'Icône HTML', text: 'HTML' },
+        css : { img: cssIcon, imgAlt: 'Icône CSS', text: 'CSS' },
+        js : { img: javascriptIcon, imgAlt: 'Icône Javascript', text: 'Javascript' },
+        git : { img: gitIcon, imgAlt: 'Icône Git', text: 'Git' },
+        
+        vitejs : { img: vitejsIcon, imgAlt: 'Icône ViteJS', text: 'ViteJS' },
+        figmaPhotoshop : { img: figmaPhotoshopIcon, imgAlt: 'Icône Figma et Photoshop mélangés', text: 'Figma/Photoshop' },
+        trello : { img: trelloIcon, imgAlt: 'Icône Trello', text: 'Trello' },
+        jquery : { img: jqueryIcon, imgAlt: 'Icône jQuery', text: 'jQuery' },
+    };
+
+    // tableau des projets
+    const projets = [
+        // elan dentaire
+        {  
+            link: "https://elan-dentaire.fr",
+            img: elanDentaire,
+            imgAlt: "Logo du projet ELAN Dentaire",
+            title: "ELAN Dentaire",
+            year: "2024",
+            desc: "Site vitrine optimisée en termes de performances et de SEO, comprend un formulaire de contact sécurisé.",
+            technos: [
+                technologies.symfony,
+                technologies.html,
+                technologies.css,
+                technologies.js,
+                technologies.jquery,
+            ]
+        },
+    
+        // avotrott
+        {   
+            link: "https://avo-trottinettes.fr/",
+            img: avotrott, imgAlt: "Logo du projet Avo'Trottinettes",
+            title: "Avo'Trottinettes",
+            year: "2024",
+            desc: "Site vitrine responsive pour Avo'Trottinettes, optimisé pour les performances et le SEO.",
+            technos: [
+                technologies.html,
+                technologies.css,
+                technologies.js,
+                technologies.jquery,
+            ]
+        },
+    
+        // beer garden
+        {   
+            link: "https://beer-garden-tailwind.vercel.app/",
+            img: beergarden, imgAlt: "Logo du projet Beer Garden",
+            title: "Beer Garden",
+            year: "2024",
+            desc: "Site \"One page\" fictif développé avec TailwindCSS, réalisé à partir d'une maquette.",
+            technos: [
+                technologies.vitejs,
+                technologies.tailwind,
+                technologies.js,
+                technologies.html,
+                technologies.css,
+            ]
+        },
+    
+        // newsgrid
+        {   
+            link: "https://news-grid-ruddy.vercel.app/",
+            img: newsgrid, imgAlt: "Logo du projet News Grid",
+            title: "NewsGrid",
+            year: "2024",
+            desc: "Site vitrine fictif utilisant CSS Grid. Comprend quatre pages : Accueil, Contact, Article et À propos.",
+            technos: [
+                technologies.html,
+                technologies.css,
+                technologies.js,
+            ]
+        },
+    
+        // hangman game
+        {   
+            link: "https://hangman-game-2-0.vercel.app/",
+            img: hangmanGame, imgAlt: "Logo du projet Hangman Game",
+            title: "Hangman game",
+            year: "2024",
+            desc: "Jeu du pendu en React. Inclus un historique des parties et des statistiques sur ce dernier.",
+            technos: [
+                technologies.react,
+                technologies.vitejs,
+                technologies.js,
+                technologies.html,
+                technologies.css,
+            ]
+        },
+    
+        // kucra
+        {   
+            link: "https://github.com/Charlydcn/Kucra_Landing_Page",
+            img: kucra, imgAlt: "Logo du projet Kucra",
+            title: "Kucra",
+            year: "2023",
+            desc: "Site vitrine fictif basée sur une maquette. Présentation complète et des vidéos sur GitHub.",
+            technos: [
+                technologies.php,
+                technologies.html,
+                technologies.css,
+                technologies.js,
+            ]
+        },
+    
+        // portfolio
+        {   
+            link: "",
+            img: portfolio, imgAlt: "Logo de mon Portfolio 2024",
+            title: "Portfolio",
+            year: "2024",
+            desc: "Le site que vous visitez actuellement, conçu et développé entièrement par moi-même.",
+            technos: [
+                technologies.vitejs,
+                technologies.tailwind,
+                technologies.js,
+                technologies.html,
+                technologies.css,
+            ]
+        },
+    
+        // // github
+        // {   
+        //     link: "https://github.com/Charlydcn?ta:repositories",
+        //     img: githubpfp, imgAlt: "Photo de profil Github Charlydcn",
+        //     title: "Github",
+        //     year: "2022 - 2024",
+        //     desc: "Découvrez mes nombreux projets fictifs réalisés pendant ma formation. Bien que certains ne soient pas accessibles publiquement, ils montrent un travail approfondi et varié.",
+        //     technos: []
+        // }
+    ];
     
     
 
@@ -127,7 +275,7 @@ function App() {
             </nav> */}
         
             <main className='overflow-x-hidden'>
-                <section className='relative w-full h-screen text-blanc flex items-center justify-center'>
+                <section className='relative w-full h-svh text-blanc flex items-center justify-center'>
                     {/* backgrounds */}
                     <div className='absolute w-full h-full top-0 z-0 flex flex-row'>
                         <div className='bg-noir w-full h-full'></div>
@@ -135,8 +283,8 @@ function App() {
                     </div>
 
                     {/* circles */}
-                    <img loading="lazy" src={circle1} className="hidden absolute z-10 left-12 -bottom-24 md:block" alt="Cercle"/>
-                    <img loading="lazy" src={circle3} className="w-64 -top-32 -left-32 absolute z-10 lg:-top-36 lg:-left-40 lg:w-auto" alt="Cercle"/>
+                    <img src={circle1} className="h-40 right-0 -bottom-20 absolute z-10 md:-bottom-24 md:md:left-12" alt="Cercle"/>
+                    <img src={circle3} className="w-64 -top-32 -left-32 absolute z-10 lg:-top-36 lg:-left-40 lg:w-auto" alt="Cercle"/>
                     
                     {/* intro */}
                     <div className='relative z-5 max-w-[85vw] flex flex-col-reverse gap-4 items-center justify-between m-auto text-blanc lg:gap-0 lg:w-3/4 2xl:max-w-screen-xl xl:w-2/3 lg:flex-row'>
@@ -196,507 +344,113 @@ function App() {
                     </div>
                 </section>
 
-                <section id="softskills" className='flex flex-col items-center w-11/12 mx-auto gap-24 lg:flex-row xl:h-96 xl:w-4/5'>
-                    <article className="softskill" data-aos="fade-up">
-                        
-                        <img loading="lazy" src={creativeIcon} alt="Illustration d'une ampoule"/>
-                        
-                        <h4>Au-delà du code</h4>
-                        
-                        <span className="line"></span>
+                <section id="softskills" className='relative flex flex-col items-center w-11/12 mx-auto gap-24 lg:flex-row xl:h-96 xl:w-4/5'>
+                    <img src={circle3} className="h-24 -left-10 -bottom-12 absolute z-10 md:right-0 md:left-auto" alt="Cercle"/>
 
-                        <p>
-                            Plus qu&apos;un simple exécutant, je propose activement des idées innovantes qui enrichissent chaque projet,
-                            tout en respectant ses fondements initiaux
-                        </p>
-                    </article>
+                    <Softskill
+                        className="softskill"
+                        img={creativeIcon}
+                        title="Au-delà du code"
+                        text="Plus qu&apos;un simple exécutant, je propose activement des idées innovantes qui enrichissent chaque projet,
+                            tout en respectant ses fondements initiaux."
+                        aosData="fade-up"
+                    />
 
-                    <article className="softskill" data-aos="fade-up" data-aos-delay="200">
-                        
-                        <img loading="lazy" src={curiosityIcon} alt="Illustration d'un point d'interrogation"/>
-                        
-                        <h4>Curiosité professionnelle</h4>
-                        
-                        <span className="line"></span>
+                    <Softskill
+                        className="softskill"
+                        img={curiosityIcon}
+                        title="Curiosité professionnelle"
+                        text="Après deux ans de développement, je reste motivé à découvrir de nouvelles technologies et à
+                            affiner mes compétences, tout en me remettant en question."
+                        aosData="fade-up"
+                        aosDelay="200"
+                    />
 
-                        <p>
-                            Après deux ans de développement, je reste motivé à découvrir de nouvelles technologies et à
-                            affiner mes compétences, tout en me remettant en question.
-                        </p>
-                    </article>
-
-                    <article className="softskill" data-aos="fade-up" data-aos-delay="400">
-                        
-                        <img loading="lazy" src={collaborationIcon} alt="Illustration d'une poignée de main"/>
-                        
-                        <h4>Aisance relationnelle</h4>
-                        
-                        <span className="line"></span>
-
-                        <p>
-                            Mon expérience dans le commerce m&apos;a permis de développer de solides compétences
-                            relationnelles et une grande facilité à travailler en équipe.
-                        </p>
-                    </article>
+                    <Softskill
+                        className="softskill"
+                        img={collaborationIcon}
+                        title="Aisance relationnelle"
+                        text="Mon expérience dans le commerce m&apos;a permis de développer de solides compétences
+                            relationnelles et une grande facilité à travailler en équipe."
+                        aosData="fade-up"
+                        aosDelay="400"
+                    />
                 </section>
 
-                <section id="techno" className='relative min-h-screen pb-32 bg-noir flex flex-col justify-center lg:min-h-0'>
+                <section id="techno" className='relative min-h-svh pb-32 bg-noir flex flex-col justify-center lg:min-h-0'>
                     <img loading="lazy" src={circle4} className="hidden absolute h-48 z-10 right-12 -bottom-24 lg:block" alt="Cercle"/>
 
                     <h5 className='text-blanc'>Technologies</h5>
 
                     <div className='technos-container grid grid-cols-1 gap-12 w-fit mx-auto sm:grid-cols-2 sm:grid-rows-4 lg:grid-cols-4 lg:grid-rows-2'>
-                        <figure className='techno' data-aos="fade-up">
-                            <img loading="lazy" src={symfonyLightIcon} alt="Icône Symfony"/>
-                            <figcaption>Symfony</figcaption>
-                        </figure>
-
-                        <figure className='techno' data-aos="fade-up">
-                            <img loading="lazy" src={phpIcon} alt="Icône PHP"/>
-                            <figcaption>PHP</figcaption>
-                        </figure>
-
-                        <figure className='techno' data-aos="fade-up">
-                            <img loading="lazy" src={reactIcon} alt="Icône React"/>
-                            <figcaption>React</figcaption>
-                        </figure>
-
-                        <figure className='techno' data-aos="fade-up">
-                            <img loading="lazy" src={tailwindIcon} alt="Icône Tailwind"/>
-                            <figcaption>Tailwind</figcaption>
-                        </figure>
-
-                        <figure className='techno' data-aos="fade-up">
-                            <img loading="lazy" src={mysqlIcon} alt="Icône MySQL"/>
-                            <figcaption>MySQL</figcaption>
-                        </figure>
-
-                        <figure className='techno' data-aos="fade-up">
-                            <img loading="lazy" src={gitIcon} alt="Icône Git"/>
-                            <figcaption>Git</figcaption>
-                        </figure>
-
-                        <figure className='techno' data-aos="fade-up">
-                            <img loading="lazy" src={figmaPhotoshopIcon} alt="Icône Figma et Photoshop mélangés"/>
-                            <figcaption>Figma/Photoshop</figcaption>
-                        </figure>
-
-                        <figure className='techno' data-aos="fade-up">
-                            <img loading="lazy" src={trelloIcon} alt="Icône Trello"/>
-                            <figcaption>Trello</figcaption>
-                        </figure>
+                        {
+                            // uniquement les 8 premières, celles d'après sont utilisés pour la section projet
+                            Object.entries(technologies).slice(0, 8).map(([key, tech]) => (
+                                <Techno
+                                    key={key}
+                                    img={tech.img}
+                                    imgAlt={tech.imgAlt}
+                                    text={tech.text}
+                                    aosData="fade-up"
+                                />
+                            ))
+                        }
                     </div>
                 </section>
 
                 <section id="projets">
-                    <h5 className='text-4xl' data-aos="fade-up">Mes projets</h5>
+                    <h5 className='text-4xl' data-aos="fade-up">Portfolio</h5>
+
+                    <span className="line"></span>
 
                     <Swiper
-                        pagination={{
-                            clickable: true,
-                            dynamicBullets: true,
+                        slidesPerView={1}
+                        spaceBetween={30}
+                        breakpoints={{
+                            650: {
+                                slidesPerView: 2,
+                            },
+                            900: {
+                                slidesPerView: 3,
+                            },
+                            1280: {
+                                slidesPerView: 4,
+                            },
+                            1536: {
+                                slidesPerView: 5,
+                            }
                         }}
-                        spaceBetween="30"
+                        pagination={{
+                          clickable: true,
+                        }}
+                        grabCursor={true}
+                        autoplay={{
+                            delay: 5000,
+                            disableOnInteraction: false,
+                        }}
+                        // loop={true}
+                        modules={[Pagination, Autoplay]}
                         
                         data-aos="fade-up"
                         data-aos-delay="200"
-                        modules={[Pagination]}
                         className="mySwiper"
                     >
 
-                        {/* ELAN Dentaire */}
-                        <SwiperSlide>
-                            <article className='projet'>
-                                <header>
-                                    <a href="https://elan-dentaire.fr" target='_blank' className='relative'>
-                                        <img loading="lazy" src={elanDentaire} alt="Logo du projet ELAN Dentaire" />
-                                        <FontAwesomeIcon
-                                            className="opacity-0 pointer-events-none text-5xl text-white z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200"
-                                            icon={faArrowRightFromBracket}
-                                        />
-                                    </a>
-                                </header>
-
-                                <main>
-                                    <a
-                                        href="https://elan-dentaire.fr"
-                                        target='_blank'
-                                        className='project-title md:hover:text-[#0e89a4]'>
-                                            
-                                        ELAN Dentaire
-                                    </a>
-                                    
-                                    <p className='project-year'>2024</p>
-
-                                    <p className='project-desc'>
-                                        Site vitrine réalisé en collaboration avec Valentin YOMBA pour le design, contient une multitude de pages
-                                        toutes optimisées en termes de performances et de SEO, un formulaire de contact sécurisé, ainsi que
-                                        3 jeux : snake, quizz, chasse au trésor
-                                    </p>
-
-                                    <footer>
-                                        <Tippy content="Symfony 6.4">
-                                            <img loading="lazy" src={symfonyDarkIcon} alt="Icône Symfony"/>
-                                        </Tippy>
-                                        <Tippy content="HTML">
-                                            <img loading="lazy" src={htmlIcon} alt="Icône HTML"/>
-                                        </Tippy>
-                                        <Tippy content="CSS">
-                                            <img loading="lazy" src={cssIcon} alt="Icône CSS"/>
-                                        </Tippy>
-                                        <Tippy content="JavaScript">
-                                            <img loading="lazy" src={javascriptIcon} alt="Icône JavaScript"/>
-                                        </Tippy>
-                                        <Tippy content="jQuery">
-                                            <img loading="lazy" src={jqueryIcon} alt="Icône jQuery"/>
-                                        </Tippy>
-                                    </footer>
-                                </main>
-                            </article>
-                        </SwiperSlide>
-
-                        {/* Avo'Trott */}
-                        <SwiperSlide>
-                            <article className='projet'>
-                                <header>
-                                    <a href="https://avo-trottinettes.fr/" target='_blank' className='relative'>
-                                        <img loading="lazy" src={avotrott} alt="Logo du projet Avo'Trottinettes" />
-                                        <FontAwesomeIcon
-                                            className="opacity-0 pointer-events-none text-5xl text-white z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200"
-                                            icon={faArrowRightFromBracket}
-                                        />
-                                    </a>
-                                </header>
-
-                                <main>
-                                    <a
-                                        href="https://avo-trottinettes.fr/"
-                                        target='_blank'
-                                        className='project-title md:hover:text-[#006894]'>
-                                            
-                                        Avo&apos;Trottinettes
-                                    </a>
-                                    
-                                    <p className='project-year'>2024</p>
-
-                                    <p className='project-desc'>
-                                        Site vitrine &quot;One Page&quot; réalisé pour l&apos;entreprise Avo&apos;Trottinettes.
-                                    </p>
-
-                                    <footer>
-                                        <Tippy content="HTML">
-                                            <img loading="lazy" src={htmlIcon} alt="Icône HTML"/>
-                                        </Tippy>
-                                        <Tippy content="CSS">
-                                            <img loading="lazy" src={cssIcon} alt="Icône CSS"/>
-                                        </Tippy>
-                                        <Tippy content="JavaScript">
-                                            <img loading="lazy" src={javascriptIcon} alt="Icône JavaScript"/>
-                                        </Tippy>
-                                        <Tippy content="jQuery">
-                                            <img loading="lazy" src={jqueryIcon} alt="Icône jQuery"/>
-                                        </Tippy>
-                                    </footer>
-
-                                </main>
-                            </article>
-                        </SwiperSlide>
-
-                        {/* beer garden */}
-                        <SwiperSlide>
-                            <article className='projet'>
-                                <header>
-                                    <a href="https://beer-garden-tailwind.vercel.app/" target='_blank' className='relative'>
-                                        <img loading="lazy" src={beergarden} alt="Logo du projet Beer Garden" />
-                                        <FontAwesomeIcon
-                                            className="opacity-0 pointer-events-none text-5xl text-white z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200"
-                                            icon={faArrowRightFromBracket}
-                                        />
-                                    </a>
-                                </header>
-
-                                <main>
-                                    <a
-                                        href="https://beer-garden-tailwind.vercel.app/"
-                                        target='_blank'
-                                        className='project-title md:hover:text-[#a77204]'>
-
-                                        Beer Garden
-                                    </a>
-
-                                    <p className='project-year'>2024</p>
-
-                                    <p className='project-desc'>
-                                        Projet &quot;One page&quot; classique pour expérimenter TailwindCSS. Réalisé à partir d&apos;une maquette donnée en formation.
-                                    </p>
-
-                                    <footer>
-                                        <Tippy content="ViteJS">
-                                            <img loading="lazy" src={vitejsIcon} alt="Icône ViteJS"/>
-                                        </Tippy>
-
-                                        <Tippy content="jQuery">
-                                            <img loading="lazy" src={tailwindIcon} alt="Icône jQuery"/>
-                                        </Tippy>
-
-                                        <Tippy content="Javascript">
-                                            <img loading="lazy" src={javascriptIcon} alt="Icône JavaScript"/>
-                                        </Tippy>
-
-                                        <Tippy content="HTML">
-                                            <img loading="lazy" src={htmlIcon} alt="Icône HTML"/>
-                                        </Tippy>
-
-                                        <Tippy content="CSS">
-                                            <img loading="lazy" src={cssIcon} alt="Icône CSS"/>
-                                        </Tippy>
-                                    </footer>
-                                </main>
-                            </article>
-                        </SwiperSlide>
-
-                        {/* newsgrid */}
-                        <SwiperSlide>
-                            <article className='projet'>
-                                <header>
-                                    <a href="https://news-grid-ruddy.vercel.app/" target='_blank' className='relative'>
-                                        <img loading="lazy" src={newsgrid} alt="Logo du projet News Grid" />
-                                        <FontAwesomeIcon
-                                            className="opacity-0 pointer-events-none text-5xl text-white z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200"
-                                            icon={faArrowRightFromBracket}
-                                        />
-                                    </a>
-                                </header>
-
-                                <main>
-                                    <a
-                                        href="https://news-grid-ruddy.vercel.app/"
-                                        target='_blank'
-                                        className='project-title md:hover:text-[#ac2121]'>
-
-                                        NewsGrid
-                                    </a>
-
-                                    <p className='project-year'>2024</p>
-
-                                    <p className='project-desc'>
-                                        Projet d&apos;introduction à la propriété CSS display: grid, un site vitrine simple et statique avec 4 pages :
-                                        Home, Contact, Article et About. Les articles de la page d&apos;accueil étaient initialement générés dynamiquement
-                                        via une API d&apos;actualités, mais sont désormais statiques pour faciliter l&apos;hébergement public du projet.
-                                    </p>
-
-                                    <footer>
-                                        <Tippy content="HTML">
-                                            <img loading="lazy" src={htmlIcon} alt="Icône HTML"/>
-                                        </Tippy>
-
-                                        <Tippy content="CSS">
-                                            <img loading="lazy" src={cssIcon} alt="Icône CSS"/>
-                                        </Tippy>
-
-                                        <Tippy content="JavaScript">
-                                            <img loading="lazy" src={javascriptIcon} alt="Icône JavaScript"/>
-                                        </Tippy>
-
-                                    </footer>
-                                </main>
-                            </article>
-                        </SwiperSlide>
-
-                        {/* hangman 2.0 */}
-                        <SwiperSlide>
-                            <article className='projet'>
-                                <header>
-                                    <a href="https://hangman-game-2-0.vercel.app/" target='_blank' className='relative'>
-                                        <img loading="lazy" src={hangmanGame} alt="Logo du projet Hangman Game" />
-                                        <FontAwesomeIcon
-                                            className="opacity-0 pointer-events-none text-5xl text-white z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200"
-                                            icon={faArrowRightFromBracket}
-                                        />
-                                    </a>
-                                </header>
-
-                                <main>
-                                    <a
-                                        href="https://hangman-game-2-0.vercel.app/"
-                                        target='_blank'
-                                        className='project-title md:hover:text-[#62466b]'>
-
-                                        Hangman game
-                                    </a>
-
-                                    <p className='project-year'>2024</p>
-
-                                    <p className='project-desc'>
-                                        Challenge de formation : jeu du pendu en React, utilisant l&apos;API trouve-mot.fr pour des mots aléatoires par catégorie.
-                                        Jouable au clavier, avec historique des parties et statistiques en local storage. Initialement développé en JavaScript
-                                        Vanilla avant d&apos;être porté en React.
-                                    </p>
-
-                                    <footer>
-                                        <Tippy content="React">
-                                            <img loading="lazy" src={reactIcon} alt="Icône React"/>
-                                        </Tippy>
-
-                                        <Tippy content="ViteJS">
-                                            <img loading="lazy" src={vitejsIcon} alt="Icône ViteJS"/>
-                                        </Tippy>
-
-                                        <Tippy content="JavaScript">
-                                            <img loading="lazy" src={javascriptIcon} alt="Icône JavaScript"/>
-                                        </Tippy>
-
-                                        <Tippy content="HTML">
-                                            <img loading="lazy" src={htmlIcon} alt="Icône HTML"/>
-                                        </Tippy>
-
-                                        <Tippy content="CSS">
-                                            <img loading="lazy" src={cssIcon} alt="Icône CSS"/>
-                                        </Tippy>
-
-                                    </footer>
-                                </main>
-                            </article>
-                        </SwiperSlide>
-
-                        {/* kucra */}
-                        <SwiperSlide>
-                            <article className='projet'>
-                                <header>
-                                    <a href="https://github.com/Charlydcn/Kucra_Landing_Page" target='_blank' className='relative'>
-                                        <img loading="lazy" src={kucra} alt="Logo du projet Kucra" />
-                                        <FontAwesomeIcon
-                                            className="opacity-0 pointer-events-none text-5xl text-white z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200"
-                                            icon={faArrowRightFromBracket}
-                                        />
-                                    </a>
-                                </header>
-
-                                <main>
-                                    <a
-                                        href="https://github.com/Charlydcn/Kucra_Landing_Page"
-                                        target='_blank'
-                                        className='project-title md:hover:text-[#338ca9]'>
-
-                                        Kucra
-                                    </a>
-
-                                    <p className='project-year'>2023</p>
-
-                                    <p className='project-desc'>
-                                        Premier projet de formation : une landing page responsive basée sur une maquette. Ajout de PHP pour
-                                        gérer les forfaits avec un dashboard admin pour l&apos;ajout/édition/suppression. Non hébergé publiquement, mais présentation complète avec vidéos sur GitHub.
-                                    </p>
-
-                                    <footer>
-                                        <Tippy content="PHP">
-                                            <img loading="lazy" src={phpIcon} alt="Icône PHP"/>
-                                        </Tippy>
-
-                                        <Tippy content="HTML">
-                                            <img loading="lazy" src={htmlIcon} alt="Icône HTML"/>
-                                        </Tippy>
-
-                                        <Tippy content="CSS">
-                                            <img loading="lazy" src={cssIcon} alt="Icône CSS"/>
-                                        </Tippy>
-
-                                        <Tippy content="JavaScript">
-                                            <img loading="lazy" src={javascriptIcon} alt="Icône JavaScript"/>
-                                        </Tippy>
-
-                                    </footer>
-                                </main>
-                            </article>
-                        </SwiperSlide>
-
-                        {/* portfolio */}
-                        <SwiperSlide>
-                            <article className='projet'>
-                                <header>
-                                    <a href="" target='_blank' className='relative'>
-                                        <img loading="lazy" src={portfolio} alt="Logo de mon Portfolio 2024" />
-                                        <FontAwesomeIcon
-                                            className="opacity-0 pointer-events-none text-5xl text-white z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200"
-                                            icon={faArrowRightFromBracket}
-                                        />
-                                    </a>
-                                </header>
-
-                                <main>
-                                    <a
-                                        href=""
-                                        target='_blank'
-                                        className='project-title md:hover:text-[#a77204]'>
-
-                                        Portfolio
-                                    </a>
-
-                                    <p className='project-year'>2024</p>
-
-                                    <p className='project-desc'>
-                                        Le site que vous visitez en ce moment ! Tout a été réalisé par moi-même du maquettage à la mise en ligne.
-                                    </p>
-
-                                    <footer>
-                                        <Tippy content="ViteJS">
-                                            <img loading="lazy" src={vitejsIcon} alt="Icône ViteJS"/>
-                                        </Tippy>
-                                        <Tippy content="TailwindCSS">
-                                            <img loading="lazy" src={tailwindIcon} alt="Icône TailwindCSS"/>
-                                        </Tippy>
-                                        <Tippy content="JavaScript">
-                                            <img loading="lazy" src={javascriptIcon} alt="Icône JavaScript"/>
-                                        </Tippy>
-                                        <Tippy content="HTML">
-                                            <img loading="lazy" src={htmlIcon} alt="Icône HTML"/>
-                                        </Tippy>
-                                        <Tippy content="CSS">
-                                            <img loading="lazy" src={cssIcon} alt="Icône CSS"/>
-                                        </Tippy>
-                                    </footer>
-
-                                </main>
-                            </article>
-                        </SwiperSlide>
-
-                        {/* github */}
-                        <SwiperSlide>
-                            <article className='projet'>
-                                <header>
-                                    <a href="https://github.com/Charlydcn?tab=repositories" target='_blank' className='relative'>
-                                        <img loading="lazy" src={githubpfp} alt="Photo de profil Github Charlydcn" />
-                                        <FontAwesomeIcon
-                                            className="opacity-0 pointer-events-none text-5xl text-white z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200"
-                                            icon={faArrowRightFromBracket}
-                                        />
-                                    </a>
-                                </header>
-
-                                <main>
-                                    <a
-                                        href="https://github.com/Charlydcn?tab=repositories"
-                                        target='_blank'
-                                        className='project-title'>
-
-                                        Et bien plus sur mon Github&nbsp;!
-                                    </a>
-
-                                    <p className='project-year'>2022&nbsp;-&nbsp;2024</p>
-
-                                    <p className='project-desc'>
-                                        Pendant mes formations, j&apos;ai réalisé de nombreux projets fictifs dans des conditions proches du réel.
-                                        
-                                        Bien qu&apos;ils ne soient pas publiquement accessibles, certains ont demandé plusieurs semaines de travail.
-                                        
-                                        Venez découvrir ces projets sur mon GitHub&nbsp;!
-                                    </p>
-
-                                    <footer>
-                                    </footer>
-                                </main>
-                            </article>
-                        </SwiperSlide>
+                        {
+                            projets.map((projet, index) => (
+                                <SwiperSlide key={index}>
+                                    <Projet
+                                        link={projet.link}
+                                        img={projet.img}
+                                        imgAlt={projet.imgAlt}
+                                        title={projet.title}
+                                        year={projet.year}
+                                        desc={projet.desc}
+                                        technos={projet.technos}
+                                    />
+                                </SwiperSlide>
+                            ))
+                        }
                     </Swiper>
                 </section>
 
@@ -706,21 +460,29 @@ function App() {
                     <h5 className='text-blanc' data-aos="fade-down">À bientôt !</h5>
 
                     <div className='w-fit flex flex-col gap-6 justify-items-center mx-auto md:grid md:grid-cols-2 md:grid-rows-2'>
+                        <ContactBtn 
+                            icon={faLinkedin} 
+                            text="Charly Ducournau-Guichard" 
+                            link="https://www.linkedin.com/in/charlydcn/" 
+                            aos="fade-right" 
+                            aosDelay="100"
+                        />
+                        
+                        <ContactBtn 
+                            icon={faGithub} 
+                            text="@Charlydcn" 
+                            link="https://github.com/Charlydcn" 
+                            aos="fade-left" 
+                            aosDelay="200"
+                        />
 
-                        <div className="contact-div col-span-1" data-aos="fade-right" data-aos-delay="100">
-                            <FontAwesomeIcon icon={faLinkedin} />
-                            <a href="https://www.linkedin.com/in/charlydcn/" target="_blank">Charly Ducournau-Guichard</a>
-                        </div>
-
-                        <div className="contact-div col-span-1" data-aos="fade-left" data-aos-delay="200">
-                            <FontAwesomeIcon icon={faGithub} />
-                            <a href="https://github.com/Charlydcn" target="_blank">@Charlydcn</a>
-                        </div>
-
-                        <div className="contact-div col-span-2" data-aos="fade-down" data-aos-delay="300">
-                            <FontAwesomeIcon icon={faLocationDot} />
-                            <p>Strasbourg, France</p>
-                        </div>
+                        <ContactBtn 
+                            icon={faLocationDot} 
+                            text="Strasbourg, France" 
+                            aos="fade-down" 
+                            aosDelay="300"
+                            className="col-span-2"
+                        />
                     </div>
 
                     <p className='absolute bottom-0 left-1/2 -translate-x-1/2 w-max max-w-[90vw] text-blanc italic opacity-50 text-center pb-2'>

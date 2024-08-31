@@ -20,136 +20,31 @@ body {
     h5 {
         @apply text-4xl font-medium mx-auto w-fit mb-10 text-noir relative z-10
     }
-    
-    /* h5::after {
-        content:"";
-        @apply absolute bottom-0 left-1/2 transform -translate-x-1/2 bg-vert/40 w-5/6 h-1 -z-10
-    }
-
-    h5.text-blanc::after {
-        @apply bg-vert/20
-    } */
 
     section {
         @apply py-20
     }
 
 
-    .softskill:hover img {
-        @apply md:rotate-6 md:-translate-y-2
-    }
 
-    .softskill {
-        @apply flex flex-col items-center gap-2 max-w-[80vw] xl:w-1/3
-    }
-
-    .softskill .line {
-        @apply block h-0.5 opacity-50 w-3/4 bg-vert
-    }
-
-    .softskill img {
-        @apply h-24 object-scale-down transition-transform duration-200
-    }
-
-    .softskill h4 {
-        @apply font-bold text-noir text-lg text-center xl:text-2xl
-    }
-
-    .softskill p {
-        @apply opacity-50 font-light max-w-96 text-sm xl:text-base
+    /* underline hover animation */
+    .underline-hover {
+        @apply relative after:absolute after:w-full after:scale-x-0 after:h-[1px] after:bottom-0 after:left-0 after:z-[-1] after:bg-current after:transition-transform after:duration-300 after:origin-right hover:after:scale-x-100 hover:after:origin-left;
     }
 
 
 
-
-    .techno {
-        @apply flex flex-col items-center justify-center text-blanc w-52 h-52 bg-[#383A35] gap-6 transition-all
-    }
-
-    .techno:hover {
-        @apply md:-translate-y-2
+    .swiper {
+        @apply w-10/12 mx-auto max-w-screen-2xl
     }
 
     .technos-container:has(.techno:hover) > :not(:hover) {
         @apply md:opacity-50
     }
 
-    .techno img {
-        @apply h-16 object-scale-down
+    .techno:first-of-type img {
+        @apply brightness-[6.5]
     }
-
-    .techno figcaption {
-        @apply font-light
-    }
-
-
-
-
-
-
-    .swiper {
-        @apply w-10/12 mx-auto max-w-4xl xl:w-2/3
-    }
-
-    .projet {
-        @apply flex flex-col items-center pb-12 cursor-grab gap-6 lg:gap-0 lg:grid lg:grid-cols-6
-    }
-
-    .projet header {
-        @apply w-fit transition-all duration-200 rounded overflow-hidden lg:aspect-square lg:col-span-2
-    }
-
-    .projet header img {
-        @apply transition-all duration-200 aspect-square
-    }
-
-    .projet header a::before {
-        @apply content-[''] absolute z-10 top-0 left-0 w-full h-full bg-black opacity-0 transition-opacity duration-300;
-    }
-
-    .projet header:hover img {
-        @apply md:blur-[3px];
-    }
-    
-    .projet header:hover a::before {
-        @apply md:opacity-50;
-    }
-    
-    .projet header:hover a svg {
-        @apply md:opacity-100;
-    }
-
-    .projet main {
-        @apply flex flex-col lg:col-span-4 h-full lg:pl-8
-    }
-
-    .projet .project-title {
-        @apply text-2xl text-noir italic font-[500] mb-1 transition-colors duration-200 lg:text-3xl
-    }
-
-    .projet .project-year {
-        @apply text-sm opacity-50 italic
-    }
-
-    .projet .project-desc {
-        @apply text-base mt-6 text-noir
-    }
-
-    .projet footer {
-        @apply h-12 flex gap-4 mt-10 lg:mt-auto
-    }
-
-    .projet footer img {
-        @apply h-full
-    }
-
-    /* .projet footer {
-        @apply flex gap-4 max-h-12 mt-auto
-    }
-
-    .projet footer img {
-        @apply h-8 object-scale-down w-fit lg:h-full
-    } */
 
 
 
