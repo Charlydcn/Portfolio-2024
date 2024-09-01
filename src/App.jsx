@@ -494,10 +494,6 @@ function App() {
                           clickable: true,
                         }}
                         grabCursor={true}
-                        autoplay={{
-                            delay: 5000,
-                            disableOnInteraction: true,
-                        }}
                         // loop={true}
                         modules={[Pagination, Autoplay]}
                         
