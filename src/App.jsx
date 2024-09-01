@@ -1,12 +1,18 @@
 import './index.css'
 
+import { useState } from 'react';
+
 import $ from 'jquery';
+
 
 
 // ---------------------------------------------------------------------------
 // components ----------------------------------------------------------------
 import Softskill from './components/Softskill';
 import Techno from './components/Techno';
+import Projet from './components/Projet';
+import ContactBtn from './components/ContactBtn';
+import Modal from './components/Modal';
 // ---------------------------------------------------------------------------
 
 
@@ -28,7 +34,7 @@ import creativeIcon from "../src/assets/img/icones/creative.webp";
 
 // icones technos
 import reactIcon from "../src/assets/img/icones/technos/react.webp";
-import symfonyLightIcon from "../src/assets/img/icones/technos/symfony_light.webp";
+// import symfonyLightIcon from "../src/assets/img/icones/technos/symfony_light.webp";
 import symfonyDarkIcon from "../src/assets/img/icones/technos/symfony_dark.webp";
 import tailwindIcon from "../src/assets/img/icones/technos/tailwind.webp";
 import phpIcon from "../src/assets/img/icones/technos/php.webp";
@@ -81,19 +87,16 @@ import 'swiper/swiper-bundle.css'
 
 
 
-
 // ---------------------------------------------------------------------------
 // fontawesome ---------------------------------------------------------------
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faEllipsis, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
-import Projet from './components/Projet';
-import ContactBtn from './components/ContactBtn';
-import { useEffect } from 'react';
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 
 
+// import { useEffect } from 'react';
 
 
 function App() {
@@ -256,6 +259,12 @@ function App() {
         }
     ];
 
+
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);    
 
 
     // JS du curseur personnalisé (thanks : https://codepen.io/Hakadao/pen/zYdmvJE)
@@ -552,10 +561,13 @@ function App() {
                             className="col-span-2"
                         />
                     </div>
+                    
+                    <div className='absolute bottom-0 left-1/2 -translate-x-1/2 w-max max-w-[90vw] text-blanc italic opacity-50 text-center pb-2'>
+                        <p>&copy;&nbsp;2024&nbsp;&#45;&nbsp;Charly&nbsp;DUCOURNAU&#45;GUICHARD</p>
+                        <button onClick={openModal}>Mentions légales</button>
+                    </div>
 
-                    <p className='absolute bottom-0 left-1/2 -translate-x-1/2 w-max max-w-[90vw] text-blanc italic opacity-50 text-center pb-2'>
-                        &copy;&nbsp;2024&nbsp;&#45;&nbsp;Charly&nbsp;DUCOURNAU&#45;GUICHARD
-                    </p>
+                    <Modal isOpen={isModalOpen} onClose={closeModal} />
                 </section>
             </main>
 
