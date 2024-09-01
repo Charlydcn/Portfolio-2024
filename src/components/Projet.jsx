@@ -15,16 +15,17 @@ import 'tippy.js/dist/tippy.css';
 export default function Projet({link, img, imgAlt, title, year, desc, technos}) {
 
     return (
-        <article className='projet flex flex-col items-center gap-6 h-[35rem] pb-12'>
-            <header className='w-fit transition-all duration-200 rounded overflow-hidden'>
-                <img src={img} alt={imgAlt} className='transition-all duration-200 aspect-square' />
+        <article className='projet flex flex-col items-center gap-6 h-[35rem] pb-12 px-6'>
+            <header className='aspect-square w-full transition-all  rounded overflow-hidden'>
+                <img src={img} alt={imgAlt} className='transition-all  w-full h-full object-cover' />
             </header>
 
-            <main className='flex flex-col h-[45%]'>
+            <main className='flex flex-col h-60'>
                 <a
                     href={link}
                     target='_blank'
                     className={`project-title text-2xl text-noir font-[500] mb-1`}
+                    data-cursor="pointer"
                 >
                     <span className='underline-hover'>{title}</span>
 
@@ -37,11 +38,11 @@ export default function Projet({link, img, imgAlt, title, year, desc, technos}) 
                     {desc}
                 </p>
 
-                <footer className='h-9 flex gap-4 mt-auto'>
+                <footer className='h-7 flex gap-4 mt-auto'>
                     {   
                         technos.map((techno, index) => (
                             <Tippy key={index} content={techno.text}>
-                                <img src={techno.img} alt={techno.imgAlt} className='h-full'/>
+                                <img src={techno.img} alt={techno.imgAlt} className='tippy h-full'/>
                             </Tippy>
                         ))
                     }

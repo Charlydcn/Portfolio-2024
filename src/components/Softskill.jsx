@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 export default function Softskill({img, title, text, aosData = null, aosDelay = null}) {
     return (
         <article 
-            className="softskill flex flex-col items-center gap-2 max-w-[80vw] xl:w-1/3 group" 
+            className="softskill flex flex-col items-center gap-2 max-w-[80vw] lg:w-96 group" 
             data-aos={aosData} 
             data-aos-delay={aosDelay}
         >
@@ -11,7 +11,7 @@ export default function Softskill({img, title, text, aosData = null, aosDelay = 
                 loading="lazy" 
                 src={img} 
                 alt="Illustration d'une ampoule" 
-                className="h-24 object-scale-down transition-transform duration-200 md:group-hover:rotate-6 md:group-hover:-translate-y-2"
+                className="h-24 object-scale-down transition-transform  md:group-hover:rotate-6 md:group-hover:-translate-y-2"
             />
             
             <h4 className="font-bold text-noir text-lg text-center xl:text-2xl">

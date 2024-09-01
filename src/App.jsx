@@ -79,6 +79,9 @@ import 'swiper/swiper-bundle.css'
 
 
 
+
+
+
 // ---------------------------------------------------------------------------
 // fontawesome ---------------------------------------------------------------
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -86,6 +89,7 @@ import { faArrowRight, faEllipsis, faLocationDot } from '@fortawesome/free-solid
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import Projet from './components/Projet';
 import ContactBtn from './components/ContactBtn';
+import { useEffect } from 'react';
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 
@@ -239,41 +243,106 @@ function App() {
             ]
         },
     
-        // // github
-        // {   
-        //     link: "https://github.com/Charlydcn?ta:repositories",
-        //     img: githubpfp, imgAlt: "Photo de profil Github Charlydcn",
-        //     title: "Github",
-        //     year: "2022 - 2024",
-        //     desc: "Découvrez mes nombreux projets fictifs réalisés pendant ma formation. Bien que certains ne soient pas accessibles publiquement, ils montrent un travail approfondi et varié.",
-        //     technos: []
-        // }
+        // github
+        {   
+            link: "https://github.com/Charlydcn?ta:repositories",
+            img: githubpfp, imgAlt: "Photo de profil Github Charlydcn",
+            title: "Github",
+            year: "2022 - 2024",
+            desc: "Pour voir la qualité de mon code ainsi que de nombreux projets non hébergés publiquement, visitez mon Github !",
+            technos: [
+                technologies.git
+            ]
+        }
     ];
-    
-    
+
+
+
+    // JS du curseur personnalisé (thanks : https://codepen.io/Hakadao/pen/zYdmvJE)
+    useEffect(() => {
+        const cursor = document.querySelector("#cursor");
+        const cursorBorder = document.querySelector("#cursor-border");
+        const cursorPos = { x: 0, y: 0 };
+        const cursorBorderPos = { x: 0, y: 0 };
+
+        const darkColor66 = "rgb(41 43 39 / 66%)"; // noir transparent
+        const darkColor = "rgb(41 43 39)"; // noir
+
+        const handleMouseMove = (e) => {
+            cursorPos.x = e.clientX;
+            cursorPos.y = e.clientY;
+            cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+        };
+
+        const loop = () => {
+            const easing = 8;
+            cursorBorderPos.x += (cursorPos.x - cursorBorderPos.x) / easing;
+            cursorBorderPos.y += (cursorPos.y - cursorBorderPos.y) / easing;
+            cursorBorder.style.transform = `translate(${cursorBorderPos.x}px, ${cursorBorderPos.y}px)`;
+            requestAnimationFrame(loop);
+        };
+
+        const handleMouseOver = (item) => {
+            if (item.dataset.cursor === "pointer") {
+                cursorBorder.style.backgroundColor = "rgba(255, 255, 255, .6)";
+                cursor.style.backgroundColor = "white";
+                cursorBorder.style.setProperty("--size", "30px");
+                cursorBorder.style.mixBlendMode = "normal";
+                cursorBorder.style.boxShadow = '0 0 0 1px white';
+            }
+            if (item.dataset.cursor === "pointer-dark") {
+                cursorBorder.style.backgroundColor = darkColor66;
+                cursor.style.backgroundColor = darkColor;
+
+                cursorBorder.style.setProperty("--size", "30px");
+
+                cursorBorder.style.mixBlendMode = "normal";
+                cursorBorder.style.boxShadow = 'unset';
+            }
+            if (item.dataset.cursor === "pointer2") {
+                cursorBorder.style.backgroundColor = "white";
+                cursor.style.backgroundColor = "white";
+                cursorBorder.style.mixBlendMode = "difference";
+                cursorBorder.style.setProperty("--size", "80px");
+                cursorBorder.style.boxShadow = '0 0 0 1px white';
+            }
+            if (item.dataset.cursor === "dark") {
+                cursorBorder.style.backgroundColor = darkColor66;
+                cursor.style.backgroundColor = darkColor;
+
+                cursorBorder.style.mixBlendMode = "difference";
+                cursorBorder.style.boxShadow = 'unset';
+            }
+        };
+
+        const handleMouseOut = () => {
+            cursorBorder.style.backgroundColor = "unset";
+            cursor.style.backgroundColor = "white";
+            cursorBorder.style.boxShadow = '0 0 0 1px white';
+            cursorBorder.style.mixBlendMode = "unset";
+            cursorBorder.style.setProperty("--size", "50px");
+        };
+
+        document.addEventListener("mousemove", handleMouseMove);
+        requestAnimationFrame(loop);
+
+        document.querySelectorAll("[data-cursor]").forEach((item) => {
+            item.addEventListener("mouseover", () => handleMouseOver(item));
+            item.addEventListener("mouseout", handleMouseOut);
+        });
+
+        return () => {
+            document.removeEventListener("mousemove", handleMouseMove);
+        };
+    }, []);
+
 
     return (
-        <>
-            {/* <nav className='absolute top-4 z-50 w-full'>
-                <ul className='text-blanc opacity-40 flex items-center justify-center gap-8'>
-                    <li>
-                        <a href="#">Accueil</a>
-                    </li>
-                    
-                    <li>
-                        <a href="#">Technologies</a>
-                    </li>
-                    
-                    <li>
-                        <a href="#">Parcours</a>
-                    </li>
-                    
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                </ul>
-            </nav> */}
-        
+        <>       
+
+            <div id="cursor" className='hidden lg:block'></div>
+            <div id="cursor-border" className='hidden lg:block'></div> 
+
             <main className='overflow-x-hidden'>
                 <section className='relative w-full h-svh text-blanc flex items-center justify-center'>
                     {/* backgrounds */}
@@ -283,8 +352,8 @@ function App() {
                     </div>
 
                     {/* circles */}
-                    <img src={circle1} className="h-40 right-0 -bottom-20 absolute z-10 md:-bottom-24 md:md:left-12" alt="Cercle"/>
-                    <img src={circle3} className="w-64 -top-32 -left-32 absolute z-10 lg:-top-36 lg:-left-40 lg:w-auto" alt="Cercle"/>
+                    <img src={circle1} data-cursor="pointer2" className="h-40 right-0 -bottom-20 absolute z-10 md:-bottom-24 md:md:left-12" alt="Cercle"/>
+                    <img src={circle3} data-cursor="pointer2" className="w-64 -top-32 -left-32 absolute z-10 lg:-top-36 lg:-left-40 lg:w-auto" alt="Cercle"/>
                     
                     {/* intro */}
                     <div className='relative z-5 max-w-[85vw] flex flex-col-reverse gap-4 items-center justify-between m-auto text-blanc lg:gap-0 lg:w-3/4 2xl:max-w-screen-xl xl:w-2/3 lg:flex-row'>
@@ -319,9 +388,10 @@ function App() {
                                 className='border-2 border-blanc flex items-center justify-between font-semibold w-56 px-2 pr-0 h-10 group sm:w-72'
                                 data-aos="fade-left"
                                 data-aos-delay="450"
+                                data-cursor="pointer"
                             >
 
-                                <span className='transition-transform duration-200 md:group-hover:translate-x-1'>Pourquoi moi ?</span>
+                                <span className='transition-transform  md:group-hover:translate-x-1'>Pourquoi moi ?</span>
                                 <div className='bg-blanc h-full w-16 flex items-center justify-center'>
                                     <FontAwesomeIcon className="text-noir text-xl" icon={faArrowRight}/>
                                 </div>
@@ -339,46 +409,47 @@ function App() {
                         {/* photo */}
                         <div className='relative w-4/5 max-w-96 lg:max-w-full lg:w-96' data-aos="fade-up" data-aos-delay="150">
                             <img loading="lazy" className='w-full' src={photoIntro} alt="Photographie de moi-même" />
-                            <img loading="lazy" src={circle1} className="absolute h-24 bottom-0 -right-2" alt="Cercle"/>
+                            <img loading="lazy" src={circle1} data-cursor="pointer2" className="absolute h-24 bottom-0 -right-2" alt="Cercle"/>
                         </div>
                     </div>
                 </section>
 
-                <section id="softskills" className='relative flex flex-col items-center w-11/12 mx-auto gap-24 lg:flex-row xl:h-96 xl:w-4/5'>
-                    <img src={circle3} className="h-24 -left-10 -bottom-12 absolute z-10 md:right-0 md:left-auto" alt="Cercle"/>
+                <section id="softskills" data-cursor="dark" className='relative'>
+                    <div className='flex flex-col items-center w-11/12 max-w-screen-2xl mx-auto gap-24 lg:flex-row xl:w-4/5'>
+                        <Softskill
+                            className="softskill"
+                            img={creativeIcon}
+                            title="Au-delà du code"
+                            text="Plus qu&apos;un simple exécutant, je propose activement des idées innovantes qui enrichissent chaque projet,
+                                tout en respectant ses fondements initiaux."
+                            aosData="fade-up"
+                        />
 
-                    <Softskill
-                        className="softskill"
-                        img={creativeIcon}
-                        title="Au-delà du code"
-                        text="Plus qu&apos;un simple exécutant, je propose activement des idées innovantes qui enrichissent chaque projet,
-                            tout en respectant ses fondements initiaux."
-                        aosData="fade-up"
-                    />
+                        <Softskill
+                            className="softskill"
+                            img={curiosityIcon}
+                            title="Curiosité professionnelle"
+                            text="Après deux ans de développement, je reste motivé à découvrir de nouvelles technologies et à
+                                affiner mes compétences, tout en me remettant en question."
+                            aosData="fade-up"
+                            aosDelay="200"
+                        />
 
-                    <Softskill
-                        className="softskill"
-                        img={curiosityIcon}
-                        title="Curiosité professionnelle"
-                        text="Après deux ans de développement, je reste motivé à découvrir de nouvelles technologies et à
-                            affiner mes compétences, tout en me remettant en question."
-                        aosData="fade-up"
-                        aosDelay="200"
-                    />
-
-                    <Softskill
-                        className="softskill"
-                        img={collaborationIcon}
-                        title="Aisance relationnelle"
-                        text="Mon expérience dans le commerce m&apos;a permis de développer de solides compétences
-                            relationnelles et une grande facilité à travailler en équipe."
-                        aosData="fade-up"
-                        aosDelay="400"
-                    />
+                        <Softskill
+                            className="softskill"
+                            img={collaborationIcon}
+                            title="Aisance relationnelle"
+                            text="Mon expérience dans le commerce m&apos;a permis de développer de solides compétences
+                                relationnelles et une grande facilité à travailler en équipe."
+                            aosData="fade-up"
+                            aosDelay="400"
+                        />
+                    </div>
                 </section>
 
                 <section id="techno" className='relative min-h-svh pb-32 bg-noir flex flex-col justify-center lg:min-h-0'>
-                    <img loading="lazy" src={circle4} className="hidden absolute h-48 z-10 right-12 -bottom-24 lg:block" alt="Cercle"/>
+                    <img loading="lazy" src={circle4} data-cursor="pointer2" className="hidden absolute h-48 z-10 right-12 -bottom-24 lg:block" alt="Cercle"/>
+                    <img loading="lazy" src={circle3} data-cursor="pointer2" className="h-24 -right-10 -top-12 absolute z-10 md:right-6" alt="Cercle"/>
 
                     <h5 className='text-blanc'>Technologies</h5>
 
@@ -398,14 +469,13 @@ function App() {
                     </div>
                 </section>
 
-                <section id="projets">
+                <section id="projets" data-cursor="dark">
                     <h5 className='text-4xl' data-aos="fade-up">Portfolio</h5>
 
                     <span className="line"></span>
 
                     <Swiper
                         slidesPerView={1}
-                        spaceBetween={30}
                         breakpoints={{
                             650: {
                                 slidesPerView: 2,
@@ -418,7 +488,7 @@ function App() {
                             },
                             1536: {
                                 slidesPerView: 5,
-                            }
+                            },
                         }}
                         pagination={{
                           clickable: true,
@@ -426,7 +496,7 @@ function App() {
                         grabCursor={true}
                         autoplay={{
                             delay: 5000,
-                            disableOnInteraction: false,
+                            disableOnInteraction: true,
                         }}
                         // loop={true}
                         modules={[Pagination, Autoplay]}
@@ -455,31 +525,33 @@ function App() {
                 </section>
 
                 <section id="contact" className="relative bg-noir pb-36">
-                    <img loading="lazy" src={circle1} className="absolute z-10 h-32 -top-20 -left-8" alt=""/>
+                    <img loading="lazy" src={circle1} data-cursor="pointer2" className="absolute z-10 h-32 -top-20 -left-8" alt="Cercle"/>
 
                     <h5 className='text-blanc' data-aos="fade-down">À bientôt !</h5>
 
                     <div className='w-fit flex flex-col gap-6 justify-items-center mx-auto md:grid md:grid-cols-2 md:grid-rows-2'>
                         <ContactBtn 
-                            icon={faLinkedin} 
+                            icon={faLinkedin}
+                            iconColor="linkedin"
                             text="Charly Ducournau-Guichard" 
                             link="https://www.linkedin.com/in/charlydcn/" 
-                            aos="fade-right" 
+                            aosData="fade-right" 
                             aosDelay="100"
                         />
                         
                         <ContactBtn 
-                            icon={faGithub} 
+                            icon={faGithub}
                             text="@Charlydcn" 
                             link="https://github.com/Charlydcn" 
-                            aos="fade-left" 
+                            aosData="fade-left" 
                             aosDelay="200"
                         />
 
                         <ContactBtn 
-                            icon={faLocationDot} 
+                            icon={faLocationDot}
+                            iconColor="orange"
                             text="Strasbourg, France" 
-                            aos="fade-down" 
+                            aosData="fade-down" 
                             aosDelay="300"
                             className="col-span-2"
                         />
@@ -490,6 +562,13 @@ function App() {
                     </p>
                 </section>
             </main>
+
+            
+            {/* div hidden pour empêcher certaines variables tailwind de couleurs utilisées uniquement dans des composants d'être purgé */}
+            <div className="hidden">
+                <p className="text-linkedin"></p>
+                <p className="text-orange"></p>
+            </div>
         </>
 
 
