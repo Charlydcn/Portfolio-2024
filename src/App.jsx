@@ -259,89 +259,89 @@ function App() {
 
 
     // JS du curseur personnalisé (thanks : https://codepen.io/Hakadao/pen/zYdmvJE)
-    useEffect(() => {
-        const cursor = document.querySelector("#cursor");
-        const cursorBorder = document.querySelector("#cursor-border");
-        const cursorPos = { x: 0, y: 0 };
-        const cursorBorderPos = { x: 0, y: 0 };
+    // useEffect(() => {
+    //     const cursor = document.querySelector("#cursor");
+    //     const cursorBorder = document.querySelector("#cursor-border");
+    //     const cursorPos = { x: 0, y: 0 };
+    //     const cursorBorderPos = { x: 0, y: 0 };
 
-        const darkColor66 = "rgb(41 43 39 / 66%)"; // noir transparent
-        const darkColor = "rgb(41 43 39)"; // noir
+    //     const darkColor66 = "rgb(41 43 39 / 66%)"; // noir transparent
+    //     const darkColor = "rgb(41 43 39)"; // noir
 
-        const handleMouseMove = (e) => {
-            cursorPos.x = e.clientX;
-            cursorPos.y = e.clientY;
-            cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-        };
+    //     const handleMouseMove = (e) => {
+    //         cursorPos.x = e.clientX;
+    //         cursorPos.y = e.clientY;
+    //         cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    //     };
 
-        const loop = () => {
-            const easing = 8;
-            cursorBorderPos.x += (cursorPos.x - cursorBorderPos.x) / easing;
-            cursorBorderPos.y += (cursorPos.y - cursorBorderPos.y) / easing;
-            cursorBorder.style.transform = `translate(${cursorBorderPos.x}px, ${cursorBorderPos.y}px)`;
-            requestAnimationFrame(loop);
-        };
+    //     const loop = () => {
+    //         const easing = 8;
+    //         cursorBorderPos.x += (cursorPos.x - cursorBorderPos.x) / easing;
+    //         cursorBorderPos.y += (cursorPos.y - cursorBorderPos.y) / easing;
+    //         cursorBorder.style.transform = `translate(${cursorBorderPos.x}px, ${cursorBorderPos.y}px)`;
+    //         requestAnimationFrame(loop);
+    //     };
 
-        const handleMouseOver = (item) => {
-            if (item.dataset.cursor === "pointer") {
-                cursorBorder.style.backgroundColor = "rgba(255, 255, 255, .6)";
-                cursor.style.backgroundColor = "white";
-                cursorBorder.style.setProperty("--size", "30px");
-                cursorBorder.style.mixBlendMode = "normal";
-                cursorBorder.style.boxShadow = '0 0 0 1px white';
-            }
-            if (item.dataset.cursor === "pointer-dark") {
-                cursorBorder.style.backgroundColor = darkColor66;
-                cursor.style.backgroundColor = darkColor;
+    //     const handleMouseOver = (item) => {
+    //         if (item.dataset.cursor === "pointer") {
+    //             cursorBorder.style.backgroundColor = "rgba(255, 255, 255, .6)";
+    //             cursor.style.backgroundColor = "white";
+    //             cursorBorder.style.setProperty("--size", "30px");
+    //             cursorBorder.style.mixBlendMode = "normal";
+    //             cursorBorder.style.boxShadow = '0 0 0 1px white';
+    //         }
+    //         if (item.dataset.cursor === "pointer-dark") {
+    //             cursorBorder.style.backgroundColor = darkColor66;
+    //             cursor.style.backgroundColor = darkColor;
 
-                cursorBorder.style.setProperty("--size", "30px");
+    //             cursorBorder.style.setProperty("--size", "30px");
 
-                cursorBorder.style.mixBlendMode = "normal";
-                cursorBorder.style.boxShadow = 'unset';
-            }
-            if (item.dataset.cursor === "pointer2") {
-                cursorBorder.style.backgroundColor = "white";
-                cursor.style.backgroundColor = "white";
-                cursorBorder.style.mixBlendMode = "difference";
-                cursorBorder.style.setProperty("--size", "80px");
-                cursorBorder.style.boxShadow = '0 0 0 1px white';
-            }
-            if (item.dataset.cursor === "dark") {
-                cursorBorder.style.backgroundColor = darkColor66;
-                cursor.style.backgroundColor = darkColor;
+    //             cursorBorder.style.mixBlendMode = "normal";
+    //             cursorBorder.style.boxShadow = 'unset';
+    //         }
+    //         if (item.dataset.cursor === "pointer2") {
+    //             cursorBorder.style.backgroundColor = "white";
+    //             cursor.style.backgroundColor = "white";
+    //             cursorBorder.style.mixBlendMode = "difference";
+    //             cursorBorder.style.setProperty("--size", "80px");
+    //             cursorBorder.style.boxShadow = '0 0 0 1px white';
+    //         }
+    //         if (item.dataset.cursor === "dark") {
+    //             cursorBorder.style.backgroundColor = darkColor66;
+    //             cursor.style.backgroundColor = darkColor;
 
-                cursorBorder.style.mixBlendMode = "difference";
-                cursorBorder.style.boxShadow = 'unset';
-            }
-        };
+    //             cursorBorder.style.mixBlendMode = "difference";
+    //             cursorBorder.style.boxShadow = 'unset';
+    //         }
+    //     };
 
-        const handleMouseOut = () => {
-            cursorBorder.style.backgroundColor = "unset";
-            cursor.style.backgroundColor = "white";
-            cursorBorder.style.boxShadow = '0 0 0 1px white';
-            cursorBorder.style.mixBlendMode = "unset";
-            cursorBorder.style.setProperty("--size", "50px");
-        };
+    //     const handleMouseOut = () => {
+    //         cursorBorder.style.backgroundColor = "unset";
+    //         cursor.style.backgroundColor = "white";
+    //         cursorBorder.style.boxShadow = '0 0 0 1px white';
+    //         cursorBorder.style.mixBlendMode = "unset";
+    //         cursorBorder.style.setProperty("--size", "50px");
+    //     };
 
-        document.addEventListener("mousemove", handleMouseMove);
-        requestAnimationFrame(loop);
+    //     document.addEventListener("mousemove", handleMouseMove);
+    //     requestAnimationFrame(loop);
 
-        document.querySelectorAll("[data-cursor]").forEach((item) => {
-            item.addEventListener("mouseover", () => handleMouseOver(item));
-            item.addEventListener("mouseout", handleMouseOut);
-        });
+    //     document.querySelectorAll("[data-cursor]").forEach((item) => {
+    //         item.addEventListener("mouseover", () => handleMouseOver(item));
+    //         item.addEventListener("mouseout", handleMouseOut);
+    //     });
 
-        return () => {
-            document.removeEventListener("mousemove", handleMouseMove);
-        };
-    }, []);
+    //     return () => {
+    //         document.removeEventListener("mousemove", handleMouseMove);
+    //     };
+    // }, []);
 
 
     return (
         <>       
 
-            <div id="cursor" className='hidden lg:block'></div>
-            <div id="cursor-border" className='hidden lg:block'></div> 
+            {/* <div id="cursor" className='hidden lg:block'></div>
+            <div id="cursor-border" className='hidden lg:block'></div>  */}
 
             <main className='overflow-x-hidden'>
                 <section className='relative w-full h-svh text-blanc flex items-center justify-center'>
@@ -408,14 +408,14 @@ function App() {
 
                         {/* photo */}
                         <div className='relative w-4/5 max-w-96 lg:max-w-full lg:w-96' data-aos="fade-up" data-aos-delay="150">
-                            <img loading="lazy" className='w-full' src={photoIntro} alt="Photographie de moi-même" />
-                            <img loading="lazy" src={circle1} data-cursor="pointer2" className="absolute h-24 bottom-0 -right-2" alt="Cercle"/>
+                            <img className='w-full' src={photoIntro} alt="Photographie de moi-même" />
+                            <img src={circle1} data-cursor="pointer2" className="absolute h-24 bottom-0 -right-2" alt="Cercle"/>
                         </div>
                     </div>
                 </section>
 
                 <section id="softskills" data-cursor="dark" className='relative'>
-                    <div className='flex flex-col items-center w-11/12 max-w-screen-2xl mx-auto gap-24 lg:flex-row xl:w-4/5'>
+                    <div className='flex flex-col items-center justify-center w-11/12 max-w-screen-2xl mx-auto gap-24 lg:flex-row xl:w-4/5'>
                         <Softskill
                             className="softskill"
                             img={creativeIcon}
