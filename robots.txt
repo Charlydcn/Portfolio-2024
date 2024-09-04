@@ -1,2 +1,2 @@
 User-agent: *
-Disallow: /CV_2024_anon_min.pdf
+Disallow: /cv.pdf
