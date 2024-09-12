@@ -370,7 +370,7 @@ function App() {
                         {/* texte */}
                         <div className='flex flex-col mx-auto items-start lg:w-2/3 lg:px-0'>
                             <h3 
-                                className='lg:text-lg font-light opacity-50 mb-2'
+                                className='lg:text-lg font-light opacity-50 mb-2 tracking-wider'
                                 data-aos="fade-left"
                             >
                                 Enchanté
@@ -385,7 +385,7 @@ function App() {
                             </h2>
 
                             <p 
-                                className='opacity-50 my-4 font-light'
+                                className='opacity-50 my-4 font-light tracking-wider'
                                 data-aos="fade-left"
                                 data-aos-delay="300"
                             >
